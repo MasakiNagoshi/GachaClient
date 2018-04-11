@@ -1,0 +1,89 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Protocol;
+using HTTP;
+using System;
+namespace Request
+{
+    public class HTTPRequest 
+    {
+        static HTTPRequest instance;
+        MonoBehaviour mono;
+        public HTTPRequest(MonoBehaviour monoBehaviour)
+        {
+            mono = monoBehaviour;
+        }
+
+        public IEnumerator RequestPost(string url, Dictionary<string, string> dic)
+        {
+            WWWForm form = new WWWForm();
+            foreach (var data in dic)
+            {
+                form.AddField(data.Key, data.Value);
+            }
+            WWW www = new WWW(url, form);
+            yield return www;
+
+            if (www.error == null)
+            {
+                Debug.Log(www.text);
+                ResponsePost(www.text);
+            }
+            else
+            {
+                Debug.Log(www.error);
+            }
+        }
+
+        void ResponsePost(string response)
+        {
+            string[] splitdata = response.Split(',');
+            switch (splitdata[0])
+            {
+                case "0":
+                    ResponseCreateUser(splitdata);
+                    break;
+                case "1":
+                    ResponseAllGetNumbers(splitdata);
+                    break;
+                case "2":
+                    ResponseGacha(splitdata);
+                    break;
+            }
+        }
+
+        void ResponseAllGetNumbers(string[] data)
+        {
+            ResponseGetAllNumbers response = new ResponseGetAllNumbers();
+            response.numbers = data[1];
+            Debug.Log(data[1]);
+            ApiClient.Instance.ResponseGetAllNumbers(response);
+        }
+
+        void ResponseCreateUser(string[] data)
+        {
+            Debug.Break();
+            ResponseCreateUser response = new ResponseCreateUser();
+            response.user_id = data[1];
+            response.user_name = data[2];
+            ApiClient.Instance.ResponseCreateUser(response);
+        }
+
+        void ResponseGacha(string[] data)
+        {
+            List<string> sort = new List<string>(data);
+            sort.RemoveAt(0);
+            ResponseGacha response = new Protocol.ResponseGacha();
+            for (int count =0;count < sort.Count - 1;count++)
+            {
+                string[] splitdata = sort[count].Split(':');
+                EmmisionCharacter emmision = new EmmisionCharacter();
+                emmision.dictionary_number = splitdata[0];
+                emmision.rate = splitdata[1];
+                response.emmisionCharacterList.Add(emmision);
+            }
+            ApiClient.Instance.ResponseGacha(response);
+        }
+    }
+}
