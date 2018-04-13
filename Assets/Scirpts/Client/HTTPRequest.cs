@@ -50,15 +50,57 @@ namespace Request
                 case "2":
                     ResponseGacha(splitdata);
                     break;
+                case "5":
+                    ResponseGetGachaTiket(splitdata);
+                    break;
+                case "7":
+                    ResponseGetLogin(splitdata);
+                    break;
             }
+        }
+
+        void ResponseGetLogin(string[] data)
+        {
+            ResponseLogin response = new ResponseLogin();
+            if(data[1] == "0")
+            {
+                response.islogin = false;
+            }
+            else
+            {
+                response.islogin = true;
+            }
+            ApiClient.Instance.ResponseLogin(response);
+        }
+
+        void ResponseGetGachaTiket(string[] data)
+        {
+            List<string> sortdata = new List<string>(data);
+            sortdata.RemoveAt(0);
+            ResponseGetGachaTicket response = new ResponseGetGachaTicket();
+
+            for(int count = 0; count < sortdata.Count; count++)
+            {
+                string[] splitdata = sortdata[count].Split(':');
+                switch (splitdata[0])
+                {
+                    case "n":
+                        response.noraml = splitdata[1];
+                        break;
+                    case "s":
+                        response.specal = splitdata[1];
+                        break;
+                }
+            }
+            ApiClient.Instance.ResponseGetGachaTicket(response);
         }
 
         void ResponseAllGetNumbers(string[] data)
         {
-            ResponseGetAllNumbers response = new ResponseGetAllNumbers();
+            ResponseGetDictionary response = new ResponseGetDictionary();
             response.numbers = data[1];
             Debug.Log(data[1]);
-            ApiClient.Instance.ResponseGetAllNumbers(response);
+            ApiClient.Instance.ResponseGetDictionary(response);
         }
 
         void ResponseCreateUser(string[] data)

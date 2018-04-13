@@ -15,27 +15,38 @@ namespace Protocol
         public string user_name;
     }
 
+    public class RequestGetGachaTicket
+    {
+        public string user_id;
+    }
+
+    public class ResponseGetGachaTicket
+    {
+        public string noraml;
+        public string specal;
+    }
 
     public class RequestLogin
     {
         public string user_ip;
     }
 
-    public class RequestGetAllNumbers
+    public class ResponseLogin
+    {
+        public string user_id;
+        public bool islogin;
+    }
+
+    public class RequestGetDictionary
     {
         public string user_id;
     }
 
-    public class ResponseGetAllNumbers
+    public class ResponseGetDictionary
     {
         public string numbers;
     }
 
-
-    public class ResponseLogin
-    {
-
-    }
 
     public class RequestGacha
     {

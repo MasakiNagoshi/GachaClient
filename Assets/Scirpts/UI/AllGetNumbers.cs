@@ -7,9 +7,9 @@ public class AllGetNumbers : MonoBehaviour
 {
     public static  void AllGetNumber()
     {
-        RequestGetAllNumbers param = new RequestGetAllNumbers();
+        RequestGetDictionary param = new RequestGetDictionary();
         param.user_id = PlayerPrefs.GetString("id");
         Debug.Log(PlayerPrefs.GetString("id"));
-        ApiClient.Instance.RequestGetAllNumbers(param);
+        ApiClient.Instance.RequestGetDictionary(param);
     }
 }

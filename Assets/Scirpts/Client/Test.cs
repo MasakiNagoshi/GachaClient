@@ -22,4 +22,19 @@ public class Test : MonoBehaviour
             Debug.Log(PlayerPrefs.GetString("name"));
         }
     }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            /*
+            RequestLogin param = new RequestLogin();
+            param.user_ip = PlayerPrefs.GetString("id");
+            ApiClient.Instance.RequestLogin(param);
+            */
+            RequestGetDictionary param = new RequestGetDictionary();
+            param.user_id = PlayerPrefs.GetString("id");
+            ApiClient.Instance.RequestGetDictionary(param);
+        }
+    }
 }

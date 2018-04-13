@@ -36,15 +36,16 @@ namespace HTTP
             }
         }
 
-        public void RequestGetAllNumbers(RequestGetAllNumbers param)
+        public void RequestGetDictionary(RequestGetDictionary param)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add(NetWorkKey.USER_ID, param.user_id);
-            data.Add(NetWorkKey.REQUEST_STATUS, NetWorkKey.GET_ALL_NUMBER);
+            data.Add("getrequest","dictionary");
+            data.Add("status", "1");
             StartCoroutine(requester.RequestPost(ip, data));
         }
 
-        public void ResponseGetAllNumbers(ResponseGetAllNumbers response)
+        public void ResponseGetDictionary(ResponseGetDictionary response)
         {
             Debug.Log(response.numbers);
             string[] splitdata = response.numbers.Split('/');
@@ -58,8 +59,34 @@ namespace HTTP
             StartCoroutine(DictionaryLibrary.instance.Check(numbers));
         }
 
+        public void RequestGetGachaTiket(RequestGetGachaTicket param)
+        {
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            data.Add("id",param.user_id);
+            data.Add("getrequest","ticket");
+            data.Add("status","1");
+            StartCoroutine(requester.RequestPost(ip, data));
+        }
+
+        public void ResponseGetGachaTicket(ResponseGetGachaTicket response)
+        {
+            NormalTicket.Ticket.text = response.noraml;
+            SpecalTicket.Ticket.text = response.specal;
+        }
+
+
         public void RequestLogin(RequestLogin param)
         {
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            data.Add("id",param.user_ip);
+            data.Add("getrequest","login");
+            data.Add("status","1");
+            StartCoroutine(requester.RequestPost(ip, data));
+        }
+
+        public void ResponseLogin(ResponseLogin response)
+        {
+            Debug.Log(response.islogin);
         }
 
         public void RequestCreateUser(RequestCreateUser param)

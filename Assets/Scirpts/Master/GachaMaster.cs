@@ -11,5 +11,6 @@ public class GachaMaster : MonoBehaviour
 	void Start ()
     {
         GachaManager manager = new GachaManager(rateImage, parentObj);
+        TiketManager ticket = new TiketManager();
 	}
 }
