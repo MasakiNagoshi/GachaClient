@@ -50,10 +50,12 @@
      <Compile Include="Assets\Scirpts\Client\HTTPRequest.cs" />
      <Compile Include="Assets\Scirpts\Client\Protocol.cs" />
      <Compile Include="Assets\Scirpts\Client\Test.cs" />
+     <Compile Include="Assets\Scirpts\GachaRate\NRate.cs" />
      <Compile Include="Assets\Scirpts\GachaRate\RRate.cs" />
      <Compile Include="Assets\Scirpts\KeyWord\NetWorkKey.cs" />
+     <Compile Include="Assets\Scirpts\Managers\RateManager.cs" />
+     <Compile Include="Assets\Scirpts\Managers\TiketManager.cs" />
      <Compile Include="Assets\Scirpts\Master\GachaMaster.cs" />
-     <Compile Include="Assets\Scirpts\RateManager.cs" />
      <Compile Include="Assets\Scirpts\UI\AllGetNumbers.cs" />
      <Compile Include="Assets\Scirpts\UI\DictionaryLibrary.cs" />
      <Compile Include="Assets\Scirpts\UI\DictionaryNumber.cs" />
@@ -61,8 +63,11 @@
      <Compile Include="Assets\Scirpts\UI\GachaManager.cs" />
      <Compile Include="Assets\Scirpts\UI\GachaRate.cs" />
      <Compile Include="Assets\Scirpts\UI\NormalGacha.cs" />
+     <Compile Include="Assets\Scirpts\UI\NormalTicket.cs" />
      <Compile Include="Assets\Scirpts\UI\ParentObj.cs" />
      <Compile Include="Assets\Scirpts\UI\SpecalGacha.cs" />
+     <Compile Include="Assets\Scirpts\UI\SpecalTicket.cs" />
+     <Compile Include="Assets\Scirpts\UI\TicketBase.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

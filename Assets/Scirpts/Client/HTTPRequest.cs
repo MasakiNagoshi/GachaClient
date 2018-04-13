@@ -105,7 +105,6 @@ namespace Request
 
         void ResponseCreateUser(string[] data)
         {
-            Debug.Break();
             ResponseCreateUser response = new ResponseCreateUser();
             response.user_id = data[1];
             response.user_name = data[2];
@@ -123,6 +122,14 @@ namespace Request
                 EmmisionCharacter emmision = new EmmisionCharacter();
                 emmision.dictionary_number = splitdata[0];
                 emmision.rate = splitdata[1];
+				if (splitdata [2] == "1") 
+				{
+					emmision.duplication = true;
+				} 
+				else 
+				{
+					emmision.duplication = false;
+				}
                 response.emmisionCharacterList.Add(emmision);
             }
             ApiClient.Instance.ResponseGacha(response);

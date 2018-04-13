@@ -5,15 +5,17 @@ using UnityEngine;
 public  class GachaRate : MonoBehaviour
 {
     public GachaRate() { }
-    public GachaRate(string rate)
+	public GachaRate(string rate,string dictionary,bool duplication)
     {
         switch (rate)
         {
-            case "n":
+			case "n":
+			NRate nrate = new NRate ();
+			nrate.Instance (RateManager.rRate,RateManager.parentObj,duplication);
                 break;
             case "r":
                 RRate rrate = new RRate();
-                rrate.Instance(RateManager.rRate, RateManager.parentObj);
+			rrate.Instance(RateManager.rRate, RateManager.parentObj,duplication);
                 break;
             case "sr":
                 break;

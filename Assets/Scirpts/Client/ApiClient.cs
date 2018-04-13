@@ -110,6 +110,9 @@ namespace HTTP
             data.Add(NetWorkKey.GACHA_LIMIT, param.limit);
             data.Add(NetWorkKey.USER_ID, param.user_id);
             data.Add(NetWorkKey.REQUEST_STATUS, NetWorkKey.GACHA);
+			data.Add("usenormal",param.used_noraml_ticket);
+			data.Add("usespecal",param.used_specal_ticket);
+			Debug.Log (param.status);
             StartCoroutine(requester.RequestPost(ip, data));
         }
 
@@ -117,7 +120,7 @@ namespace HTTP
         {
             foreach(EmmisionCharacter character in response.emmisionCharacterList)
             {
-                GachaRate rate = new GachaRate(character.rate);
+				GachaRate rate = new GachaRate(character.rate,character.dictionary_number,character.duplication);
             }
         }
     }

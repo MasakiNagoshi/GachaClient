@@ -53,6 +53,8 @@ namespace Protocol
         public string limit;
         public string user_id;
         public string status;
+		public string used_noraml_ticket;
+		public string used_specal_ticket;
     }
 
     public class ResponseGacha
@@ -64,12 +66,11 @@ namespace Protocol
     {
         public string rate;
         public string dictionary_number;
+		public bool duplication;
     }
 
     public class EmmisionCharacterList
     {
        public List<EmmisionCharacter> emmisionCharacterList;
     }
-
-
 }
