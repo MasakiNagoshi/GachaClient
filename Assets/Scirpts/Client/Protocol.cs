@@ -35,6 +35,7 @@ namespace Protocol
     {
         public string user_id;
         public bool islogin;
+        public string login_present;
     }
 
     public class RequestGetDictionary

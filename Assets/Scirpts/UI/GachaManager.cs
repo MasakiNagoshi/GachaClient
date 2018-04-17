@@ -1,17 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 public class GachaManager
 {
-    public GachaManager(Image instance,GameObject parentObj)
+    public GachaManager(Image instance)
     {
-        Ini(instance,parentObj);
+        Ini(instance);
     }
 
-    void Ini(Image instance, GameObject parentObj)
+    void Ini(Image instance)
     {
-        RateManager.rRate = instance;
-        RateManager.parentObj = parentObj;
+        GameObject parent = GameObject.Find("Canvas");
+        CanvasManager.Canvas = parent;
+        RateManager manager = new RateManager(instance);
     }
 }

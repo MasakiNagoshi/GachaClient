@@ -35,16 +35,23 @@ namespace HTTP
                 return instance;
             }
         }
-
+        /// <summary>
+        /// 取得している図鑑の情報を取得するリクエスト処理
+        /// </summary>
+        /// <param name="param"></param>
         public void RequestGetDictionary(RequestGetDictionary param)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add(NetWorkKey.USER_ID, param.user_id);
-            data.Add("getrequest","dictionary");
+            data.Add(NetWorkKey.GET_REQUEST, NetWorkKey.DICTIONARY);
             data.Add("status", "1");
             StartCoroutine(requester.RequestPost(ip, data));
         }
 
+        /// <summary>
+        /// 取得している図鑑の情報を取得するレスポンス処理
+        /// </summary>
+        /// <param name="response"></param>
         public void ResponseGetDictionary(ResponseGetDictionary response)
         {
             Debug.Log(response.numbers);
@@ -59,36 +66,68 @@ namespace HTTP
             StartCoroutine(DictionaryLibrary.instance.Check(numbers));
         }
 
+        /// <summary>
+        /// ガチャチケットを取得するリクエスト処理
+        /// </summary>
+        /// <param name="param"></param>
         public void RequestGetGachaTiket(RequestGetGachaTicket param)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
-            data.Add("id",param.user_id);
-            data.Add("getrequest","ticket");
+            data.Add(NetWorkKey.USER_ID,param.user_id);
+            data.Add(NetWorkKey.GET_REQUEST, NetWorkKey.TICKET);
             data.Add("status","1");
             StartCoroutine(requester.RequestPost(ip, data));
         }
 
+        /// <summary>
+        /// ガチャチケットを取得するレスポンス処理
+        /// </summary>
+        /// <param name="response"></param>
         public void ResponseGetGachaTicket(ResponseGetGachaTicket response)
         {
-            NormalTicket.Ticket.text = response.noraml;
-            SpecalTicket.Ticket.text = response.specal;
+            NormalTicket.Instance.Count = int.Parse(response.noraml);
+            NormalTicket.Instance.Ticket.text = "☓" + response.noraml;
+            SpecalTicket.Instance.Count = int.Parse(response.specal);
+            SpecalTicket.Instance.Ticket.text = "X" + response.specal;
         }
 
-
+        /// <summary>
+        /// ログインをするリクエスト処理
+        /// </summary>
+        /// <param name="param"></param>
         public void RequestLogin(RequestLogin param)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
-            data.Add("id",param.user_ip);
-            data.Add("getrequest","login");
+            data.Add(NetWorkKey.USER_ID,param.user_ip);
+            data.Add(NetWorkKey.GET_REQUEST,NetWorkKey.LOGIN);
             data.Add("status","1");
             StartCoroutine(requester.RequestPost(ip, data));
         }
 
+        /// <summary>
+        /// ログインのレスポンス処理
+        /// </summary>
+        /// <param name="response"></param>
         public void ResponseLogin(ResponseLogin response)
         {
-            Debug.Log(response.islogin);
+            if(response.islogin)
+            {
+                Debug.Log("ログインしていました");
+                SceneManagers.SceneLoad( SceneManagers.SceneName.Main);
+            }
+
+            else
+            {
+                Debug.Log("ログインまだでした");
+                PlayerPrefs.SetString(NetWorkKey.LOGIN_PRESENT,response.login_present);
+                SceneManagers.SceneLoad(SceneManagers.SceneName.LoginPresent);
+            }
         }
 
+        /// <summary>
+        /// 新規ユーザーを作成のリクエスト処理
+        /// </summary>
+        /// <param name="param"></param>
         public void RequestCreateUser(RequestCreateUser param)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
@@ -97,12 +136,21 @@ namespace HTTP
             StartCoroutine(requester.RequestPost(ip, data));
         }
 
+        /// <summary>
+        /// 新規ユーザを作成のレスポンス処理
+        /// </summary>
+        /// <param name="response"></param>
         public void ResponseCreateUser(ResponseCreateUser response)
         {
             PlayerPrefs.SetString(NetWorkKey.USER_ID, response.user_id);
             PlayerPrefs.SetString(NetWorkKey.USER_NAME, response.user_name);
+            Debug.Log("ユーザー登録完了");
         }
 
+        /// <summary>
+        ///　ガチャをするときのリクエスト処理
+        /// </summary>
+        /// <param name="param"></param>
         public void RequesrGacha(RequestGacha param)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
@@ -110,12 +158,16 @@ namespace HTTP
             data.Add(NetWorkKey.GACHA_LIMIT, param.limit);
             data.Add(NetWorkKey.USER_ID, param.user_id);
             data.Add(NetWorkKey.REQUEST_STATUS, NetWorkKey.GACHA);
-			data.Add("usenormal",param.used_noraml_ticket);
-			data.Add("usespecal",param.used_specal_ticket);
+			data.Add(NetWorkKey.USE_NORMAL,param.used_noraml_ticket);
+			data.Add(NetWorkKey.USE_SPECAL, param.used_specal_ticket);
 			Debug.Log (param.status);
             StartCoroutine(requester.RequestPost(ip, data));
         }
 
+        /// <summary>
+        /// ガチャをするときのレスポンス処理
+        /// </summary>
+        /// <param name="response"></param>
         public void ResponseGacha(ResponseGacha response)
         {
             foreach(EmmisionCharacter character in response.emmisionCharacterList)

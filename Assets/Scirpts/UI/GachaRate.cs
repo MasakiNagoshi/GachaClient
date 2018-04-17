@@ -11,11 +11,12 @@ public  class GachaRate : MonoBehaviour
         {
 			case "n":
 			NRate nrate = new NRate ();
-			nrate.Instance (RateManager.rRate,RateManager.parentObj,duplication);
+			nrate.Instance (RateManager.RateImage,EmmisionGachaManager.EmmisonCharacteresParent,duplication);
                 break;
             case "r":
                 RRate rrate = new RRate();
-			rrate.Instance(RateManager.rRate, RateManager.parentObj,duplication);
+                Debug.Log("レアです");
+			rrate.Instance(RateManager.RateImage, EmmisionGachaManager.EmmisonCharacteresParent, duplication);
                 break;
             case "sr":
                 break;

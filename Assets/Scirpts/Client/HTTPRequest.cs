@@ -65,6 +65,8 @@ namespace Request
             if(data[1] == "0")
             {
                 response.islogin = false;
+                response.login_present = data[2];
+                Debug.Log(data[2]);
             }
             else
             {

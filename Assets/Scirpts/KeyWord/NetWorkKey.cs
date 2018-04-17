@@ -13,4 +13,11 @@ public class NetWorkKey
     public const string CREATE_USER = "0";
     public const string GET_ALL_NUMBER = "1";
     public const string GACHA = "2";
+    public const string GET_REQUEST = "getrequest";
+    public const string LOGIN = "login";
+    public const string TICKET = "ticket";
+    public const string DICTIONARY = "dictionary";
+    public const string USE_NORMAL = "usenormal";
+    public const string USE_SPECAL = "usespecal";
+    public const string LOGIN_PRESENT = "loginpresent";
 }
