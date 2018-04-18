@@ -10,7 +10,7 @@ public class GachaManager
 
     void Ini(Image instance)
     {
-        GameObject parent = GameObject.Find("Canvas");
+        GameObject parent = GameObject.Find(ObjectName.CANVAS);
         CanvasManager.Canvas = parent;
         RateManager manager = new RateManager(instance);
     }

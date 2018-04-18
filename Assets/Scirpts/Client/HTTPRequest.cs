@@ -1,9 +1,14 @@
-﻿using System.Collections;
+﻿//////////////////////////////////////////////
+//製作者　名越大樹
+//リクエストとレスポンスを行うクラス
+///////////////////////////////////////////////
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Protocol;
 using HTTP;
-using System;
+
 namespace Request
 {
     public class HTTPRequest 
@@ -41,19 +46,19 @@ namespace Request
             string[] splitdata = response.Split(',');
             switch (splitdata[0])
             {
-                case "0":
+                case NetWorkKey.RESPONSE_CREATE_USER:
                     ResponseCreateUser(splitdata);
                     break;
-                case "1":
-                    ResponseAllGetNumbers(splitdata);
+                case NetWorkKey.RESPONSE_GET_DICTIONARY:
+                    ResponseGetDictionary(splitdata);
                     break;
-                case "2":
+                case NetWorkKey.RESPONSE_GACHA:
                     ResponseGacha(splitdata);
                     break;
-                case "5":
+                case NetWorkKey.RESPONSE_GET_GACHA_TICKET:
                     ResponseGetGachaTiket(splitdata);
                     break;
-                case "7":
+                case NetWorkKey.RESPONSE_GET_LOGIN:
                     ResponseGetLogin(splitdata);
                     break;
             }
@@ -80,16 +85,15 @@ namespace Request
             List<string> sortdata = new List<string>(data);
             sortdata.RemoveAt(0);
             ResponseGetGachaTicket response = new ResponseGetGachaTicket();
-
             for(int count = 0; count < sortdata.Count; count++)
             {
-                string[] splitdata = sortdata[count].Split(':');
+                string[] splitdata = sortdata[count].Split(NetWorkKey.SPLIT_TICKET_FONT);
                 switch (splitdata[0])
                 {
-                    case "n":
+                    case NetWorkKey.NORMAL_TICKET:
                         response.noraml = splitdata[1];
                         break;
-                    case "s":
+                    case NetWorkKey.SPECAL_TICKET:
                         response.specal = splitdata[1];
                         break;
                 }
@@ -97,7 +101,7 @@ namespace Request
             ApiClient.Instance.ResponseGetGachaTicket(response);
         }
 
-        void ResponseAllGetNumbers(string[] data)
+        void ResponseGetDictionary(string[] data)
         {
             ResponseGetDictionary response = new ResponseGetDictionary();
             response.numbers = data[1];
@@ -120,11 +124,11 @@ namespace Request
             ResponseGacha response = new Protocol.ResponseGacha();
             for (int count =0;count < sort.Count - 1;count++)
             {
-                string[] splitdata = sort[count].Split(':');
+                string[] splitdata = sort[count].Split(NetWorkKey.EMMISION_CHARACTER_FONT);
                 EmmisionCharacter emmision = new EmmisionCharacter();
                 emmision.dictionary_number = splitdata[0];
                 emmision.rate = splitdata[1];
-				if (splitdata [2] == "1") 
+				if (splitdata [2] == NetWorkKey.DUPLICATION) 
 				{
 					emmision.duplication = true;
 				} 

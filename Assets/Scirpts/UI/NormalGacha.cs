@@ -7,7 +7,7 @@ using System;
 public class NormalGacha : GachaBase
 {
     int limit = 10;
-    string rate = "normal";
+    const string RATE = "normal";
 
     public override void AddUseCount(bool value)
     {
@@ -39,12 +39,21 @@ public class NormalGacha : GachaBase
         ConfirmationManager.Instance.SetActive(true);
     }
 
+    public override int GetMaxUseCount()
+    {
+        return NormalTicket.Instance.GetMaxUseCount();
+    }
+
+    public override string GetRate()
+    {
+        return NormalTicket.Instance.GetRate();
+    }
     public override void Gacha()
     {
         RequestGacha param = new RequestGacha();
         param.limit = NormalTicket.Instance.Count.ToString();
-        param.status = rate;
-        param.user_id = PlayerPrefs.GetString("id");
+        param.status = RATE;
+        param.user_id = PlayerPrefs.GetString(NetWorkKey.USER_ID);
         param.used_noraml_ticket = limit.ToString();
         param.used_specal_ticket = 0.ToString();
         ApiClient.Instance.RequesrGacha(param);

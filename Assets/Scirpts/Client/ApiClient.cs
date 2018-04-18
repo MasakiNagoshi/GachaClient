@@ -15,12 +15,13 @@ namespace HTTP
         static ApiClient instance;
         HTTPRequest requester;
         static string ip;
+        ApiClient() { }
+
         void Awake()
         {
             requester = new HTTPRequest(this);
             DontDestroyOnLoad(this);
         }
-        ApiClient() { }
 
         public static ApiClient Instance
         {
@@ -28,13 +29,14 @@ namespace HTTP
             {
                 if (instance == null)
                 {
-                    GameObject obj = new GameObject("ApiClientObj");
+                    GameObject obj = new GameObject(ObjectName.API_CLIENT);
                     instance = obj.AddComponent<ApiClient>();
                     ip = NetWorkKey.URL;
                 }
                 return instance;
             }
         }
+
         /// <summary>
         /// 取得している図鑑の情報を取得するリクエスト処理
         /// </summary>
@@ -44,7 +46,7 @@ namespace HTTP
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add(NetWorkKey.USER_ID, param.user_id);
             data.Add(NetWorkKey.GET_REQUEST, NetWorkKey.DICTIONARY);
-            data.Add("status", "1");
+            data.Add(NetWorkKey.STATUS, "1");
             StartCoroutine(requester.RequestPost(ip, data));
         }
 
@@ -55,7 +57,7 @@ namespace HTTP
         public void ResponseGetDictionary(ResponseGetDictionary response)
         {
             Debug.Log(response.numbers);
-            string[] splitdata = response.numbers.Split('/');
+            string[] splitdata = response.numbers.Split(NetWorkKey.DICTIONARY_SPLIT_FONT);
             List<int> numbers = new List<int>();
             for (int index = 0; index < splitdata.Length - 1; index++)
             {
@@ -75,7 +77,7 @@ namespace HTTP
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add(NetWorkKey.USER_ID,param.user_id);
             data.Add(NetWorkKey.GET_REQUEST, NetWorkKey.TICKET);
-            data.Add("status","1");
+            data.Add(NetWorkKey.STATUS,"1");
             StartCoroutine(requester.RequestPost(ip, data));
         }
 
@@ -100,7 +102,7 @@ namespace HTTP
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add(NetWorkKey.USER_ID,param.user_ip);
             data.Add(NetWorkKey.GET_REQUEST,NetWorkKey.LOGIN);
-            data.Add("status","1");
+            data.Add(NetWorkKey.STATUS,"1");
             StartCoroutine(requester.RequestPost(ip, data));
         }
 

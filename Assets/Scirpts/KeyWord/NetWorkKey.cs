@@ -1,6 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿/////////////////////////////////////////////
+//製作者　名越大樹
+//通信上での定数を管理するクラス
+/////////////////////////////////////////////
+
 
 public class NetWorkKey 
 {
@@ -20,4 +22,16 @@ public class NetWorkKey
     public const string USE_NORMAL = "usenormal";
     public const string USE_SPECAL = "usespecal";
     public const string LOGIN_PRESENT = "loginpresent";
+    public const string STATUS = "status";
+    public const char DICTIONARY_SPLIT_FONT = '/';
+    public const string RESPONSE_CREATE_USER = "0";
+    public const string RESPONSE_GET_DICTIONARY = "1";
+    public const string RESPONSE_GACHA = "2";
+    public const string RESPONSE_GET_GACHA_TICKET = "5";
+    public const string RESPONSE_GET_LOGIN = "7";
+    public const char SPLIT_TICKET_FONT = ':';
+    public const string NORMAL_TICKET = "n";
+    public const string SPECAL_TICKET = "s";
+    public const char EMMISION_CHARACTER_FONT = ':';
+    public const string DUPLICATION = "1";
 }

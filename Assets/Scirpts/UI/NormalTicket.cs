@@ -7,12 +7,26 @@ public class NormalTicket : TicketBase
     Text text;
     static NormalTicket noraml;
     int useCount = 0;
+    const string RATE = "ノーマルチケット";
+    const int MAX_USE_COUNT = 10;
+
+    public string GetRate()
+    {
+        return RATE;
+    }
+
+    public int GetMaxUseCount()
+    {
+        return MAX_USE_COUNT;
+    }
+
     public NormalTicket()
     {
         noraml = this;
-        GameObject obj = GameObject.Find("Normal");
+        GameObject obj = GameObject.Find(ObjectName.NORMAL_TICKET);
         text = obj.GetComponent<Text>();
     }
+
     public Text Ticket
     {
         get { return text; }
@@ -39,7 +53,6 @@ public class NormalTicket : TicketBase
         {
             useCount += addusecount;
         }
-        Debug.Log(useCount);
     }
     public int UseCount
     {

@@ -1,22 +1,28 @@
-﻿using UnityEngine;
+﻿/////////////////////////////////////
+//製作者　名越大樹
+//ガチャチケットを使用するときのクラス
+/////////////////////////////////////
+
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Confirmation : MonoBehaviour
 {
-    Text  rateText;
+    Text rateText;
     Text messageText;
 
     void Start()
     {
-        GameObject text = GameObject.Find("message");
-        GameObject rate = GameObject.Find("rate");
+        GameObject text = GameObject.Find(ObjectName.MESSAGE_TEXT);
+        GameObject rate = GameObject.Find(ObjectName.RATE_TEXT);
+        Debug.Log(rate);
         rateText = rate.GetComponent<Text>();
         messageText = text.GetComponent<Text>();
     }
 
     public void OkButton()
     {
-        SceneManagers.SceneLoad( SceneManagers.SceneName.EmmisionGacha);
+        SceneManagers.SceneLoad(SceneManagers.SceneName.EmmisionGacha);
     }
 
     public void CancelButton()
@@ -26,32 +32,18 @@ public class Confirmation : MonoBehaviour
 
     public void UpdateMessage()
     {
-        string message = "";
         int ticket = AttachRate.AttachGachaRate.GetCount();
-        if (ticket >= 10)
+        if (ticket >= AttachRate.AttachGachaRate.GetMaxUseCount())
         {
-            AttachRate.AttachGachaRate.SetUseCount(10);
+            AttachRate.AttachGachaRate.SetUseCount(AttachRate.AttachGachaRate.GetMaxUseCount());
         }
         else
         {
             AttachRate.AttachGachaRate.SetUseCount(ticket);
         }
-        if (AttachRate.AttachGachaRate.GetType() == typeof(SpecalGacha))
-        {
-            rateText.text = "スペシャルチケット";
-        }
-        else
-        {
-            rateText.text = "ノーマルチケット";
-        }
-        message = AttachRate.AttachGachaRate.GetUseCount().ToString() + "枚使用しますか？";
-        messageText.text = message;
+        UpdateUseMessage();
     }
 
-    void UpdateUseMessage()
-    {
-        messageText.text = AttachRate.AttachGachaRate.GetUseCount().ToString() + "枚使用しますか？";
-    }
     public void AddCount()
     {
         AddUseCount(true);
@@ -68,8 +60,9 @@ public class Confirmation : MonoBehaviour
         UpdateUseMessage();
     }
 
-    void SetAttach()
+    void UpdateUseMessage()
     {
-
+        rateText.text = AttachRate.AttachGachaRate.GetRate();
+        messageText.text = AttachRate.AttachGachaRate.GetUseCount().ToString() + Message.INQUIRE_USE_COUNT;
     }
 }

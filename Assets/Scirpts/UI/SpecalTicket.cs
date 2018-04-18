@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,11 +8,22 @@ public class SpecalTicket
     static SpecalTicket instance;
     int count = 0;
     int useCount = 0;
+    const string RATE = "スペシャルチケット";
+    const int MAX_USE_COUNT = 10;
+    public string GetRate()
+    {
+        return RATE;
+    }
+
     public SpecalTicket()
     {
         instance = this;
-        GameObject obj = GameObject.Find("Specal");
+        GameObject obj = GameObject.Find(ObjectName.SPECAL_TICKET);
         text = obj.GetComponent<Text>();
+    }
+    public int GetMaxUseCount()
+    {
+        return MAX_USE_COUNT;
     }
 
     public void AddUseCount(bool value)

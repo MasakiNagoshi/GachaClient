@@ -9,6 +9,16 @@ public class SpecalGacha : GachaBase
 {
     string status = "specal";
 
+    public override int GetMaxUseCount()
+    {
+      return  SpecalTicket.Instance.GetMaxUseCount();
+    }
+
+    public override string GetRate()
+    {
+        return SpecalTicket.Instance.GetRate();
+    }
+
     public override void AddUseCount(bool value)
     {
         SpecalTicket.Instance.AddUseCount(value);

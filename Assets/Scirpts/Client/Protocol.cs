@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿//////////////////////////////////////
+//製作者　名越大樹
+//////////////////////////////////////
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Protocol
 {

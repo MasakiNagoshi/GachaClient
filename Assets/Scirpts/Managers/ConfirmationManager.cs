@@ -11,7 +11,7 @@ public class ConfirmationManager
     public ConfirmationManager()
     {
         manager = this;
-        GameObject confrim = GameObject.Find("Confirmation");
+        GameObject confrim = GameObject.Find(ObjectName.CONFIRAMATION);
         confirmation = confrim.GetComponent<Confirmation>();
         confirmation.gameObject.SetActive(false);
     }
