@@ -12,8 +12,8 @@ public class DictionaryLibrary : MonoBehaviour
     GameObject parentObj;
     public static DictionaryLibrary instance;
     public List<Image> instanceobjList = new List<Image>();
-	// Use this for initialization
-	void Start ()
+
+    void Start ()
     {
         instance = this;
         StartCoroutine(InstanceLibrary());

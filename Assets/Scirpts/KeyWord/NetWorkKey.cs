@@ -34,4 +34,5 @@ public class NetWorkKey
     public const string SPECAL_TICKET = "s";
     public const char EMMISION_CHARACTER_FONT = ':';
     public const string DUPLICATION = "1";
+    public const char RESPONSE_FIRST_SPLIT = ',';
 }

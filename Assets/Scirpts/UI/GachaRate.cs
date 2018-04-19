@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public  class GachaRate : MonoBehaviour
 {
     public GachaRate() { }
@@ -10,13 +10,13 @@ public  class GachaRate : MonoBehaviour
         switch (rate)
         {
 			case "n":
-			NRate nrate = new NRate ();
-			nrate.Instance (RateManager.RateImage,EmmisionGachaManager.EmmisonCharacteresParent,duplication);
+			GachaRate nrate = new NRate();
+			nrate.Instance (RateManager.RateImage,EmmisionGachaManager.EmmisonCharacteresParent,duplication,dictionary);
                 break;
             case "r":
                 RRate rrate = new RRate();
                 Debug.Log("レアです");
-			rrate.Instance(RateManager.RateImage, EmmisionGachaManager.EmmisonCharacteresParent, duplication);
+			rrate.Instance(RateManager.RateImage, EmmisionGachaManager.EmmisonCharacteresParent, duplication,dictionary);
                 break;
             case "sr":
                 break;
@@ -25,5 +25,5 @@ public  class GachaRate : MonoBehaviour
         }
     }
     public virtual void EffectAction() { }
-    public virtual void Instance() { }
+    public virtual void Instance(Image instanceobj, GameObject parent, bool duplication,string dictionary) { }
 }

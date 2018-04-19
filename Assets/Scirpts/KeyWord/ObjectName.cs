@@ -12,4 +12,6 @@ public class ObjectName
     public const string SPECAL_TICKET = "SpecalTicketObj";
     public const string CANVAS = "CanvasObj";
     public const string API_CLIENT = "ApiClientObj";
+    public const string EMMISION_PARENT = "EmmisionParentObj";
+    public const string ITEM_IMAGE = "ItemImageObj";
 }

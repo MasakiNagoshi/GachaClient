@@ -1,13 +1,16 @@
-﻿
+﻿/////////////////////////////////////
+//制作者　名越大樹
+//スペシャルガチャを行うクラス
+//////////////////////////////////////
+
 using UnityEngine;
 using HTTP;
 using Protocol;
 using UnityEngine.UI;
-using System;
 
 public class SpecalGacha : GachaBase
 {
-    string status = "specal";
+    const string GACHA_RATE = "specal";
 
     public override int GetMaxUseCount()
     {
@@ -50,13 +53,19 @@ public class SpecalGacha : GachaBase
         SpecalTicket.Instance.UseCount = usecount;
     }
 
+    public override string GetGachaRate()
+    {
+        return GACHA_RATE;
+    }
+
     public override void Gacha()
     {
         RequestGacha param = new RequestGacha();
         param.user_id = PlayerPrefs.GetString(NetWorkKey.USER_ID);
-        param.status = status;
+        param.status = GACHA_RATE;
         param.limit = SpecalTicket.Instance.Count.ToString();
         param.used_specal_ticket = SpecalTicket.Instance.UseCount.ToString();
+        Debug.Log(SpecalTicket.Instance.Count.ToString());
         param.used_noraml_ticket = 0.ToString();
         ApiClient.Instance.RequesrGacha(param);
     }

@@ -8,8 +8,8 @@ public class LoginPresent
     Image itemImage;
     public LoginPresent()
     {
-        GameObject messageObj = GameObject.Find("Message");
-        GameObject itemObj = GameObject.Find("ItemImage");
+        GameObject messageObj = GameObject.Find(ObjectName.MESSAGE_TEXT);
+        GameObject itemObj = GameObject.Find(ObjectName.ITEM_IMAGE);
         itemImage = itemObj.GetComponent<Image>();
         messageText = messageObj.GetComponent<Text>();
         string message = "";
@@ -21,6 +21,7 @@ public class LoginPresent
         ItemCount(ref message, split);
         message += "入手しました！";
         messageText.text = message;
+        ItemRate(ref message,split);
     }
 
     void ItemRate(ref string message,string[] split)

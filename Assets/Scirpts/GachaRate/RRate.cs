@@ -1,10 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/////////////////////////////////////////
+//製作者　名越大樹
+//レアレートのキャラクターのクラス
+/////////////////////////////////////////
+
 using UnityEngine;
 using UnityEngine.UI;
+
 public  class RRate : GachaRate
 {
-	public void Instance(Image instanceobj,GameObject parent,bool duplication)
+	public override void Instance(Image instanceobj,GameObject parent,bool duplication,string dictionary)
     {
         var obj = Instantiate(instanceobj);
         obj.transform.parent = parent.transform;

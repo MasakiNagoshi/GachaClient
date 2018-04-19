@@ -1,16 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿//////////////////////////////////////////
+//製作者　名越大樹
+//排出するキャラクターを管理するクラス
+//////////////////////////////////////////
 using UnityEngine;
+
 
 public class EmmisionGachaManager
 {
     static GameObject emmisonCharacteresParent;
+    public static GameObject EmmisonCharacteresParent { get { return emmisonCharacteresParent; } }
+
     public EmmisionGachaManager()
     {
-        GameObject obj = GameObject.Find("EmmisionParent");
+        GameObject obj = GameObject.Find(ObjectName.EMMISION_PARENT);
         emmisonCharacteresParent = obj;
+        EmmisionGachaIllustlation illust = new EmmisionGachaIllustlation(AttachRate.AttachGachaRate.GetGachaRate());
         AttachRate.AttachGachaRate.Gacha();
     }
 
-    public static GameObject EmmisonCharacteresParent { get { return emmisonCharacteresParent; } }
 }

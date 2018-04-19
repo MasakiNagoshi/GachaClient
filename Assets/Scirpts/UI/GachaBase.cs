@@ -11,4 +11,5 @@ public abstract class GachaBase : MonoBehaviour
     public abstract int GetUseCount();
     public abstract void AddUseCount(bool value);
     public abstract int GetMaxUseCount();
+    public abstract string GetGachaRate();
 }

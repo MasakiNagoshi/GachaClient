@@ -43,7 +43,7 @@ namespace Request
 
         void ResponsePost(string response)
         {
-            string[] splitdata = response.Split(',');
+            string[] splitdata = response.Split(NetWorkKey.RESPONSE_FIRST_SPLIT);
             switch (splitdata[0])
             {
                 case NetWorkKey.RESPONSE_CREATE_USER:
