@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class RateManager
 {
-    public RateManager(Image rate)
+    public RateManager(Button rate)
     {
         rateObj = rate;
     }
 
-    static Image rateObj;
-    public static Image RateImage { get { return rateObj; } }
+    static Button rateObj;
+    public static Button RateObj { get { return rateObj; } }
 }

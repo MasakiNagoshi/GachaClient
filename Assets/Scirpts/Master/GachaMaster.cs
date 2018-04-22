@@ -6,10 +6,11 @@ using Protocol;
 public class GachaMaster : MonoBehaviour
 {
     [SerializeField]
-    Image rateImage;
+    Button rateButton;
+
 	void Start ()
     {
-        GachaManager manager = new GachaManager(rateImage);
+        GachaManager manager = new GachaManager(rateButton);
         TiketManager ticket = new TiketManager();
         ConfirmationManager confirmation = new ConfirmationManager();
         IniRequest();

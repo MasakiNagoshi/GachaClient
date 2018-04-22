@@ -146,6 +146,7 @@ namespace HTTP
         {
             PlayerPrefs.SetString(NetWorkKey.USER_ID, response.user_id);
             PlayerPrefs.SetString(NetWorkKey.USER_NAME, response.user_name);
+            SceneManagers.SceneLoad( SceneManagers.SceneName.Title);
             Debug.Log("ユーザー登録完了");
         }
 

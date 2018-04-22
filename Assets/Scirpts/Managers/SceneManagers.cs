@@ -18,6 +18,9 @@ public class SceneManagers
     {
         switch (name)
         {
+            case SceneName.Title:
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
+                break;
             case SceneName.Main:
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Gacha");
                 break;

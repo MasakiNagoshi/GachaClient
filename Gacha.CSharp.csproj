@@ -75,13 +75,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ALLDELETE.cs" />
     <Compile Include="Assets\Scirpts\Client\ApiClient.cs" />
     <Compile Include="Assets\Scirpts\Client\HTTPRequest.cs" />
     <Compile Include="Assets\Scirpts\Client\Protocol.cs" />
     <Compile Include="Assets\Scirpts\Client\Test.cs" />
     <Compile Include="Assets\Scirpts\Error\ErrorCheck.cs" />
+    <Compile Include="Assets\Scirpts\GachaRate\GachaRate.cs" />
     <Compile Include="Assets\Scirpts\GachaRate\NRate.cs" />
     <Compile Include="Assets\Scirpts\GachaRate\RRate.cs" />
+    <Compile Include="Assets\Scirpts\GachaRate\SRRate.cs" />
+    <Compile Include="Assets\Scirpts\GachaRate\SSRRate.cs" />
     <Compile Include="Assets\Scirpts\Ini\GachaSceneIni.cs" />
     <Compile Include="Assets\Scirpts\KeyWord\Message.cs" />
     <Compile Include="Assets\Scirpts\KeyWord\NetWorkKey.cs" />
@@ -101,12 +105,14 @@
     <Compile Include="Assets\Scirpts\Master\TitleMaster.cs" />
     <Compile Include="Assets\Scirpts\UI\AllGetNumbers.cs" />
     <Compile Include="Assets\Scirpts\UI\AttachRate.cs" />
+    <Compile Include="Assets\Scirpts\UI\Button\SkipButton.cs" />
     <Compile Include="Assets\Scirpts\UI\Confirmation.cs" />
     <Compile Include="Assets\Scirpts\UI\DictionaryLibrary.cs" />
     <Compile Include="Assets\Scirpts\UI\DictionaryNumber.cs" />
+    <Compile Include="Assets\Scirpts\UI\Duplication.cs" />
+    <Compile Include="Assets\Scirpts\UI\EmmisionGachaIllustlation.cs" />
     <Compile Include="Assets\Scirpts\UI\GachaBase.cs" />
     <Compile Include="Assets\Scirpts\UI\GachaManager.cs" />
-    <Compile Include="Assets\Scirpts\UI\GachaRate.cs" />
     <Compile Include="Assets\Scirpts\UI\LoginPresent.cs" />
     <Compile Include="Assets\Scirpts\UI\NextSceneButton.cs" />
     <Compile Include="Assets\Scirpts\UI\NormalGacha.cs" />
@@ -116,6 +122,7 @@
     <Compile Include="Assets\Scirpts\UI\SpecalGacha.cs" />
     <Compile Include="Assets\Scirpts\UI\SpecalTicket.cs" />
     <Compile Include="Assets\Scirpts\UI\TicketBase.cs" />
+    <Compile Include="Assets\Testtt.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

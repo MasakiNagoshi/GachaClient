@@ -4,11 +4,11 @@ using UnityEngine.UI;
 public class EmmisionGachaMaster : MonoBehaviour
 {
     [SerializeField]
-    Image rateImage;
+    Button rateButton;
     void Start()
     {
         CanvasManager canvasManager = new CanvasManager();
-        RateManager rateManager = new RateManager(rateImage);
+        RateManager rateManager = new RateManager(rateButton);
         EmmisionGachaManager manager = new EmmisionGachaManager();
     }
 }
