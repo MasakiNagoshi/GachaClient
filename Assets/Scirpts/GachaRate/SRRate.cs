@@ -13,8 +13,24 @@ public class SRRate : GachaRate
         return null;
     }
 
+    public override Button GetButtonObj()
+    {
+        return base.GetButtonObj();
+    }
+
+
+
     public override void ChangeColor(string rate, bool duplication, int number, Button rateobj)
     {
         base.ChangeColor(rate, duplication, number, rateobj);
+    }
+
+    public override void EffectAction()
+    {
+        GameObject effect = Resources.Load<GameObject>("Effect/Test");
+        var instance = Instantiate(effect);
+        var obj = GetButtonObj();
+        instance.transform.parent = obj.gameObject.transform;
+        instance.transform.position = obj.gameObject.transform.position;
     }
 }

@@ -3,6 +3,7 @@
 //排出したガチャを全表示させるクラス
 ///////////////////////////////////////////////////////////////
 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

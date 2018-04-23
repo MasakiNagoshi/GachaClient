@@ -56,7 +56,6 @@ public class EmmisionGachaIllustlation
         {
             number = "00" + number;
         }
-        Debug.Log(Resources.Load < Sprite >("Image/CharacterIllust/" + rate + "/" + number));
         return Resources.Load<Sprite>("Image/CharacterIllust/" + rate + "/" + number);
 
     }

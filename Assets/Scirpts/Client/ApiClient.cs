@@ -177,6 +177,9 @@ namespace HTTP
             {
 				GachaRate rate = new GachaRate(character.rate,character.dictionary_number,character.duplication);
             }
+            Canvas canvas = CanvasManager.Canvas.GetComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            GetEffectManager manager = new GetEffectManager();
         }
     }
 }

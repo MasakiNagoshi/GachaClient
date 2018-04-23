@@ -14,6 +14,7 @@ public class EmmisionGachaManager
     {
         GameObject obj = GameObject.Find(ObjectName.EMMISION_PARENT);
         emmisonCharacteresParent = obj;
+        ScaleAnimationManager animation = new ScaleAnimationManager();
         EmmisionGachaIllustlation illust = new EmmisionGachaIllustlation(AttachRate.AttachGachaRate.GetGachaRate());
         AttachRate.AttachGachaRate.Gacha();
         SkipButton skip = new SkipButton();
