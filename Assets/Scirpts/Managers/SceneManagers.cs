@@ -33,6 +33,10 @@ public class SceneManagers
             case SceneName.EmmisionGacha:
                 UnityEngine.SceneManagement.SceneManager.LoadScene("EmmisionGacha");
                 break;
+            case SceneName.Dictionary:
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Dictionary");
+                break;
+
         }
 
     }

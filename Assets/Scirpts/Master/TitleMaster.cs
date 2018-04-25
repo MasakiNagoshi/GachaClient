@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/////////////////////////////////////////
+//製作者　名越大樹
+//Titleシーン全体を管理するクラス
+/////////////////////////////////////////
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -1,7 +1,13 @@
-﻿using System.Collections;
+﻿////////////////////////////////////////////
+//製作者　名越大樹
+//ゲーム内のエラー内容に対するクラス
+////////////////////////////////////////////
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class ErrorCheck
 {
     static ErrorCheck instance;
@@ -18,6 +24,7 @@ public class ErrorCheck
             return instance;
         }
     }
+	
     public static bool InputName(string name)
     {
         Debug.Log(name.Length);

@@ -25,7 +25,7 @@ public class NetWorkKey
     public const string STATUS = "status";
     public const char DICTIONARY_SPLIT_FONT = '/';
     public const string RESPONSE_CREATE_USER = "0";
-    public const string RESPONSE_GET_DICTIONARY = "1";
+    public const string RESPONSE_GET_DICTIONARY = "6";
     public const string RESPONSE_GACHA = "2";
     public const string RESPONSE_GET_GACHA_TICKET = "5";
     public const string RESPONSE_GET_LOGIN = "7";

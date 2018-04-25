@@ -1,12 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿///////////////////////////////////////////
+//制作者　名越大樹
+//スケールのアニメーションに関するクラス
+///////////////////////////////////////////
+
 using UnityEngine;
 
 public class ScaleAnimation
 {
-    Vector3 defalutScale;
-    GameObject targetObj;
-    bool isAnimation = true;
+    Vector3 defalutScale;//初期サイズ
+    GameObject targetObj;//アニメーションさせるオブジェクト
+    bool isAnimation = true;//アニメーションが終わったかどうか
     GachaRate gachaRate = null;
 
     public ScaleAnimation(GameObject target, GachaRate rate)

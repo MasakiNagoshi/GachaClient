@@ -18,6 +18,7 @@ public class GetEffectManager
     public enum BackGroundColor
     {
         Fire,
+        Ice,
     }
     bool isUpdate = false;
     public GetEffectManager()
@@ -52,6 +53,11 @@ public class GetEffectManager
                 effectBase = fire;
                 isUpdate = true;
                 break;
+            case 144:
+                GetEffectBase friiezer = new GetIceEffect(number);
+                effectBase = friiezer;
+                isUpdate = true;
+                break;
         }
     }
 
@@ -79,6 +85,13 @@ public class GetEffectManager
                 changecolor.a = 1;
                 changecolor.r = 0.5f;
                 changecolor.g = 0;
+                changecolor.b = 0.1f;
+                backGroundObj.color = changecolor;
+                break;
+            case BackGroundColor.Ice:
+                changecolor.a = 1;
+                changecolor.r = 0.05f;
+                changecolor.g = 0.1f;
                 changecolor.b = 0.1f;
                 backGroundObj.color = changecolor;
                 break;

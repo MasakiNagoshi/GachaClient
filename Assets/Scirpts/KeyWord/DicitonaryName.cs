@@ -24,6 +24,8 @@ public class DicitonaryName
     {
         switch (number)
         {
+            case 144:
+                return "フリーザー";
             case 146:
                 return "ファイアー";
         }

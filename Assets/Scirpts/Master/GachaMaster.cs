@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿///////////////////////////////////////////
+//製作者　名越大樹
+//Gachaシーン全体を管理するクラス
+///////////////////////////////////////////
+
+using UnityEngine;
 using UnityEngine.UI;
 using HTTP;
 using Protocol;

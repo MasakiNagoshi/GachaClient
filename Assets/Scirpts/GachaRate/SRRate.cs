@@ -18,11 +18,9 @@ public class SRRate : GachaRate
         return base.GetButtonObj();
     }
 
-
-
-    public override void ChangeColor(string rate, bool duplication, int number, Button rateobj)
+    public override void ChangeSprite(string rate, bool duplication, int number, Button rateobj)
     {
-        base.ChangeColor(rate, duplication, number, rateobj);
+        base.ChangeSprite(rate, duplication, number, rateobj);
     }
 
     public override void EffectAction()

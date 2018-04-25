@@ -16,19 +16,8 @@ public class NRate : GachaRate
         return null;
     }
 
-    public override void ChangeColor(string rate,bool duplication,int number,Button rateobj)
+    public override void ChangeSprite(string rate,bool duplication,int number,Button rateobj)
     {
-
-        base.ChangeColor(rate,duplication,number,rateobj);
-        /*
-        if (duplication)
-        {
-            obj.color = Color.black;
-        }
-        else
-        {
-            obj.color = Color.red;
-        }
-        */
+        base.ChangeSprite(rate,duplication,number,rateobj);
     }
 }

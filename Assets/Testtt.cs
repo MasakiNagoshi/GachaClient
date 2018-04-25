@@ -10,9 +10,9 @@ public class Testtt : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Space))
         {
-            GetEffectManager.Instace.PlayEffect(146);
+            GetEffectManager.Instace.PlayEffect(144);
 
-            Debug.Log(Resources.Load<Sprite>("Image/CharacterIllust/SSRRateImage/" + 146));
+            Debug.Log(Resources.Load<Sprite>("Image/CharacterIllust/SSRRateImage/" + 144));
         }
 	}
 }

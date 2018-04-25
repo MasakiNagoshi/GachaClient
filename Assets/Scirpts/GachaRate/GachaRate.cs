@@ -2,6 +2,7 @@
 //制作者　名越大樹
 //排出キャラクターのレートの基底クラス
 ///////////////////////////////////////////
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ public  class GachaRate : MonoBehaviour
     const string SSR_RATE = "ssr";
     GachaRate gachaRate;
     Button buttonObj;
+
     public GachaRate() { }
 
 	public GachaRate(string rate,string dictionary,bool duplication)
@@ -47,10 +49,21 @@ public  class GachaRate : MonoBehaviour
     public virtual void EffectAction()
     {
     }
+
     public virtual Button GetButtonObj()
     {
         return buttonObj;
     }
+
+    /// <summary>
+    /// ボタンを生成する処理
+    /// </summary>
+    /// <param name="rate"></param>
+    /// <param name="instanceobj"></param>
+    /// <param name="parent"></param>
+    /// <param name="duplication"></param>
+    /// <param name="dictionary"></param>
+    /// <returns></returns>
     public virtual Button Instance(string rate, Button instanceobj, GameObject parent, bool duplication,string dictionary)
     {
         var obj = Instantiate(instanceobj);
@@ -58,7 +71,14 @@ public  class GachaRate : MonoBehaviour
         obj.onClick.AddListener(() =>
         {
             Debug.Log(dictionary);
-           ChangeColor(rate,duplication,int.Parse(dictionary),obj);
+            ChangeSprite(rate,duplication,int.Parse(dictionary),obj);
+            if(!duplication)
+            {
+                if (int.Parse(dictionary) == 144)
+                {
+                    GetEffectManager.Instace.PlayEffect(int.Parse(dictionary));
+                }
+            }
         });
         obj.GetComponent<Image>().sprite = EmmisionGachaIllustlation.Instance.GetMonsterBallRateImage(rate);
         SkipButton.Instance.AddSkip(rate,duplication,int.Parse(dictionary),obj,this);
@@ -67,7 +87,14 @@ public  class GachaRate : MonoBehaviour
         return obj;
     }
 
-    public virtual void ChangeColor(string rate,bool duplication,int number,Button rateobj)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="rate"></param>
+    /// <param name="duplication"></param>
+    /// <param name="number"></param>
+    /// <param name="rateobj"></param>
+    public virtual void ChangeSprite(string rate,bool duplication,int number,Button rateobj)
     {
         if (rateobj != null)
         {
@@ -79,7 +106,7 @@ public  class GachaRate : MonoBehaviour
                 {
                     GetEffectManager.Instace.PlayEffect(number);
                 }
-                Duplication dup = new Duplication(rateobj.gameObject);
+                IniEmmisionCharacter dup = new IniEmmisionCharacter(rateobj.gameObject);
             }
             rateobj.enabled = false;
         }

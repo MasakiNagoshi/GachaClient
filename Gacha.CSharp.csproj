@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ALLDELETE.cs" />
+    <Compile Include="Assets\Scirpts\Animation\FadeAnimation.cs" />
     <Compile Include="Assets\Scirpts\Animation\ScaleAnimation.cs" />
     <Compile Include="Assets\Scirpts\Client\ApiClient.cs" />
     <Compile Include="Assets\Scirpts\Client\HTTPRequest.cs" />
@@ -89,6 +90,9 @@
     <Compile Include="Assets\Scirpts\GachaRate\RRate.cs" />
     <Compile Include="Assets\Scirpts\GachaRate\SRRate.cs" />
     <Compile Include="Assets\Scirpts\GachaRate\SSRRate.cs" />
+    <Compile Include="Assets\Scirpts\GetEffect\GetEffectBase.cs" />
+    <Compile Include="Assets\Scirpts\GetEffect\GetFireEffect.cs" />
+    <Compile Include="Assets\Scirpts\GetEffect\GetIceEffect.cs" />
     <Compile Include="Assets\Scirpts\Ini\GachaSceneIni.cs" />
     <Compile Include="Assets\Scirpts\KeyWord\DicitonaryName.cs" />
     <Compile Include="Assets\Scirpts\KeyWord\Message.cs" />
@@ -111,9 +115,6 @@
     <Compile Include="Assets\Scirpts\Master\GachaMaster.cs" />
     <Compile Include="Assets\Scirpts\Master\LoginPresentMaster.cs" />
     <Compile Include="Assets\Scirpts\Master\TitleMaster.cs" />
-    <Compile Include="Assets\Scirpts\Test\GetEffectBase.cs" />
-    <Compile Include="Assets\Scirpts\Test\GetEffectCharacter.cs" />
-    <Compile Include="Assets\Scirpts\Test\GetFireEffect.cs" />
     <Compile Include="Assets\Scirpts\UI\AllGetNumbers.cs" />
     <Compile Include="Assets\Scirpts\UI\AttachRate.cs" />
     <Compile Include="Assets\Scirpts\UI\Button\SkipButton.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Assets\Scirpts\UI\EmmisionGachaIllustlation.cs" />
     <Compile Include="Assets\Scirpts\UI\GachaBase.cs" />
     <Compile Include="Assets\Scirpts\UI\GachaManager.cs" />
+    <Compile Include="Assets\Scirpts\UI\InieEmmisionCharacter.cs" />
     <Compile Include="Assets\Scirpts\UI\LoginPresent.cs" />
     <Compile Include="Assets\Scirpts\UI\NextSceneButton.cs" />
     <Compile Include="Assets\Scirpts\UI\NormalGacha.cs" />

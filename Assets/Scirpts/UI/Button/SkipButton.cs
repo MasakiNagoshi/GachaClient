@@ -1,9 +1,8 @@
-﻿///////////////////////////////////////////////////////////////
+﻿////////////////////////////////////
 //制作者　名越大樹
 //排出したガチャを全表示させるクラス
-///////////////////////////////////////////////////////////////
+///////////////////////////////////
 
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,11 +13,12 @@ public class SkipButton
     public static SkipButton Instance { get { return instance; } }
     List<GachaRate> gachaList = new List<GachaRate>();
     Button buttonobj;
+    const string SKIP_OBJ = "SkipButton"; 
 
     public SkipButton()
     {
         instance = this;
-        buttonobj = GameObject.Find("SkipButton").GetComponent<Button>();
+        buttonobj = GameObject.Find(SKIP_OBJ).GetComponent<Button>();
     }
 
     /// <summary>
@@ -32,7 +32,7 @@ public class SkipButton
     {
         buttonobj.onClick.AddListener(() => 
         {
-            add.ChangeColor(rate,duplication,number,targetobj);
+            add.ChangeSprite(rate,duplication,number,targetobj);
         }
         );
     }

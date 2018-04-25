@@ -1,6 +1,11 @@
-﻿
+﻿/////////////////////////////////////
+//製作者　名越大樹
+//EmmisionGachaシーンでの全体を管理するクラス
+/////////////////////////////////////
+
 using UnityEngine;
 using UnityEngine.UI;
+
 public class EmmisionGachaMaster : MonoBehaviour
 {
     [SerializeField]
