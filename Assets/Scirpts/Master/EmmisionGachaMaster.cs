@@ -14,7 +14,7 @@ public class EmmisionGachaMaster : MonoBehaviour
     void Start()
     {
         CanvasManager canvasManager = new CanvasManager();
-        RateManager rateManager = new RateManager(rateButton);
+        EmmisionCharacterRateManager rateManager = new EmmisionCharacterRateManager(rateButton);
         EmmisionGachaManager manager = new EmmisionGachaManager();
         EmmisionUpdateManager update = new EmmisionUpdateManager();
         updateManager = update;

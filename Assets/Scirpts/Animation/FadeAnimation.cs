@@ -9,5 +9,31 @@ using UnityEngine;
 
 public class FadeAnimation
 {
+    public enum FadeStatus
+    {
+        FadeIn,
+        FadeOut,
+    }
 
+    FadeStatus status;
+
+    public FadeAnimation(FadeStatus set)
+    {
+        status = set;
+    }
+
+    public void UpdateAnimation()
+    {
+       
+    }
+
+    void FadeOutAnimation()
+    {
+
+    }
+
+    void FadeInAnimation()
+    {
+
+    }
 }

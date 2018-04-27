@@ -1,12 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿////////////////////////////////////////////////////////////
+//制作者　名越大樹
+//初めて取得した排出キャラクターの演出全体を管理するクラス
+////////////////////////////////////////////////////////////
+
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GetEffectManager
 {
+    const string BACK_GROUND_NAME = "BackGroundObj";
+    const string EFFECT_CANVAS_NAME = "GetEffectCanvas";
+    const string CHARACTER_IMAGE = "CharacterImage";
+    const string CHARACTER_TEXT_NAME = "CharacterText";
+    const string GET_IMAGE_NAME = "GetImage";
+    const string MARK_NAME = "Mark";
     static GetEffectManager instance;
-    public static GetEffectManager Instace { get { return instance; } }
     SpriteRenderer backGroundObj;
     Canvas getEffectCanvas;
     Image character;
@@ -15,35 +23,28 @@ public class GetEffectManager
     Image getImage;
     static GetEffectBase effectBase;
     AudioSource source;
+    bool isUpdate = false;
     public enum BackGroundColor
     {
         Fire,
         Ice,
+        Thunder,
+        Esper,
     }
-    bool isUpdate = false;
-    public GetEffectManager()
-    {
-        backGroundObj = GameObject.Find("BackGroundObj").GetComponent<SpriteRenderer>();
-        getEffectCanvas = GameObject.Find("GetEffectCanvas").GetComponent<Canvas>();
-        character = GameObject.Find("CharacterImage").GetComponent<Image>();
-        characterName = GameObject.Find("CharacterName").GetComponent<Text>();
-        source = getEffectCanvas.GetComponent<AudioSource>();
-        getImage = GameObject.Find("GetImage").GetComponent<Image>();
-        GameObject mark = GameObject.Find("Mark");
-        tipeMarkObj = mark.transform.position;
-        instance = this;
-        getEffectCanvas.gameObject.SetActive(false);
-    }
+
     public Vector3 TipeMrakPostion { get { return tipeMarkObj; } }
     public Text CharacterText { get { return characterName; } }
     public AudioSource Audio { get { return source; } }
     public Image GetImage { get { return getImage; } }
-    public  GetEffectBase EffectInstance
-    {
-        get { return effectBase; }
-        set { effectBase = value; }
-    }
+    public  GetEffectBase EffectInstance{get { return effectBase; }set { effectBase = value; }}
     public Image CharacterImage { get { return character; } }
+    public static GetEffectManager Instace { get { return instance; } }
+
+    public GetEffectManager()
+    {
+        Ini();
+    }
+
     public void PlayEffect(int number)
     {
         switch (number)
@@ -53,9 +54,20 @@ public class GetEffectManager
                 effectBase = fire;
                 isUpdate = true;
                 break;
-            case 144:
+            case 144://フリーザー
                 GetEffectBase friiezer = new GetIceEffect(number);
                 effectBase = friiezer;
+                isUpdate = true;
+                break;
+            case 145://サンダー
+                GetEffectBase thunder = new GetThunderEffect(number);
+                effectBase = thunder;
+                isUpdate = true;
+                break;
+            case 150://ミュウツー
+            case 151://ミュウ
+                GetEffectBase esper = new GetEsperEffect(number);
+                effectBase = esper;
                 isUpdate = true;
                 break;
         }
@@ -95,6 +107,12 @@ public class GetEffectManager
                 changecolor.b = 0.1f;
                 backGroundObj.color = changecolor;
                 break;
+            case BackGroundColor.Thunder:
+                backGroundObj.color = Color.black;
+                break;
+            case BackGroundColor.Esper:
+                backGroundObj.color = Color.black;
+                break;
         }
     }
 
@@ -112,4 +130,17 @@ public class GetEffectManager
         Reset();
     }
 
+    void Ini()
+    {
+        backGroundObj = GameObject.Find(BACK_GROUND_NAME).GetComponent<SpriteRenderer>();
+        getEffectCanvas = GameObject.Find(EFFECT_CANVAS_NAME).GetComponent<Canvas>();
+        character = GameObject.Find(CHARACTER_IMAGE).GetComponent<Image>();
+        characterName = GameObject.Find(CHARACTER_TEXT_NAME).GetComponent<Text>();
+        source = getEffectCanvas.GetComponent<AudioSource>();
+        getImage = GameObject.Find(GET_IMAGE_NAME).GetComponent<Image>();
+        GameObject mark = GameObject.Find(MARK_NAME);
+        tipeMarkObj = mark.transform.position;
+        instance = this;
+        getEffectCanvas.gameObject.SetActive(false);
+    }
 }

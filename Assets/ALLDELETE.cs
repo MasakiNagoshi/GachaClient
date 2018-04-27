@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class ALLDELETE : MonoBehaviour
 {
-
-	void Start () {
+	void Start ()
+    {
         PlayerPrefs.DeleteAll();
 	}
-	
 }

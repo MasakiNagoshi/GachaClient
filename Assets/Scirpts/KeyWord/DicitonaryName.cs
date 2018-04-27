@@ -28,6 +28,12 @@ public class DicitonaryName
                 return "フリーザー";
             case 146:
                 return "ファイアー";
+            case 145:
+                return "サンダー";
+            case 150:
+                return "ミュウツー";
+            case 151:
+                return "ミュウ";
         }
         return null;
     }

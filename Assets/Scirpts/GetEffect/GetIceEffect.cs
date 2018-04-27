@@ -6,13 +6,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class GetIceEffect : GetEffectBase
 {
     List<float> effectTimer;
     int number;
     GameObject effect;
     const string FIRE_START_SE = "SE/Effect/fire01";
-
+    const string ICE_START_EFFECT = "Effect/IceStart";
+    const string ICE_MARK_EFFECT = "Effect/IceEffect";
     enum ActionList
     {
         Ini,
@@ -44,7 +46,7 @@ public class GetIceEffect : GetEffectBase
         effectTimer.Add(2);
         effectTimer.Add(3);
         int number = GetNumber();
-        GameObject effet = Resources.Load<GameObject>("Effect/IceStart");
+        GameObject effet = Resources.Load<GameObject>(ICE_START_EFFECT);
         Vector3 pos = Camera.main.transform.position;
         pos.y += 5;
         pos.z = 0;
@@ -59,7 +61,7 @@ public class GetIceEffect : GetEffectBase
     void MarkObj()
     {
         int number = GetNumber();
-        GameObject fire = Resources.Load<GameObject>("Effect/IceEffect");
+        GameObject fire = Resources.Load<GameObject>(ICE_MARK_EFFECT);
         Vector3 pos = GetEffectManager.Instace.TipeMrakPostion;
         GameObject effectinstance = Instantiate(fire, pos, Quaternion.identity);
         GetEffectManager.Instace.Audio.clip = Resources.Load<AudioClip>("SE/Effect/fire03");

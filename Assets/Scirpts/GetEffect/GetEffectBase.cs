@@ -1,7 +1,7 @@
-﻿///////////////////////////////////////////
+﻿///////////////////////////////////////////////////////
 //制作者　名越大樹
 //初めて入手したキャラクターの演出に関する基底クラス
-///////////////////////////////////////////
+///////////////////////////////////////////////////////
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -66,14 +66,20 @@ public class GetEffectBase : MonoBehaviour
         GetEffectManager.Instace.Audio.Play();
     }
 
+    /// <summary>
+    /// /キャラクターの番号を取得する処理
+    /// </summary>
+    /// <returns></returns>
     public virtual int GetNumber()
     {
         return number;
     }
 
-    public virtual void EffectUpdate()
-    {
-    }
+    /// <summary>
+    /// 毎回更新される処理
+    /// </summary>
+    public virtual void EffectUpdate(){}
+
 
     public virtual bool IsClick()
     {

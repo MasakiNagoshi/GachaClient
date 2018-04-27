@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿///////////////////////////////////////////////
+//制作者　名越大樹
+//Titleシーン状を管理するクラス
+///////////////////////////////////////////////
+
 using UnityEngine;
-using UnityEngine.UI;
 using HTTP;
 using Protocol;
 
@@ -22,8 +24,6 @@ public class TitleManager
             RequestLogin param = new RequestLogin();
             param.user_ip = PlayerPrefs.GetString(NetWorkKey.USER_ID);
             ApiClient.Instance.RequestLogin(param);
-            //            ApiClient.Instance.
-            //            SceneManagers.SceneLoad( SceneManagers.SceneName.Main);
         }
 
         else

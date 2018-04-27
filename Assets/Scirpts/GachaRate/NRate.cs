@@ -18,6 +18,6 @@ public class NRate : GachaRate
 
     public override void ChangeSprite(string rate,bool duplication,int number,Button rateobj)
     {
-        base.ChangeSprite(rate,duplication,number,rateobj);
+        base.ChangeSprite(rate, duplication, number, rateobj);
     }
 }

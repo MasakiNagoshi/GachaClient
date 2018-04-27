@@ -17,6 +17,6 @@ public class GachaManager
     {
         GameObject parent = GameObject.Find(ObjectName.CANVAS);
         CanvasManager.Canvas = parent;
-        RateManager manager = new RateManager(instance);
+        EmmisionCharacterRateManager manager = new EmmisionCharacterRateManager(instance);
     }
 }

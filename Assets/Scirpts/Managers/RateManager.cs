@@ -1,14 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿/////////////////////////////////////////
+//制作者　名越大樹
+//排出キャラクターを管理するクラス
+/////////////////////////////////////////
+
 using UnityEngine.UI;
-public class RateManager
+
+public class EmmisionCharacterRateManager
 {
-    public RateManager(Button rate)
+    static Button rateObj;
+    public static Button RateObj { get { return rateObj; } }
+
+    public EmmisionCharacterRateManager(Button rate)
     {
         rateObj = rate;
     }
-
-    static Button rateObj;
-    public static Button RateObj { get { return rateObj; } }
 }

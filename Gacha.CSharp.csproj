@@ -91,8 +91,10 @@
     <Compile Include="Assets\Scirpts\GachaRate\SRRate.cs" />
     <Compile Include="Assets\Scirpts\GachaRate\SSRRate.cs" />
     <Compile Include="Assets\Scirpts\GetEffect\GetEffectBase.cs" />
+    <Compile Include="Assets\Scirpts\GetEffect\GetEsperEffect.cs" />
     <Compile Include="Assets\Scirpts\GetEffect\GetFireEffect.cs" />
     <Compile Include="Assets\Scirpts\GetEffect\GetIceEffect.cs" />
+    <Compile Include="Assets\Scirpts\GetEffect\GetThunderEffect.cs" />
     <Compile Include="Assets\Scirpts\Ini\GachaSceneIni.cs" />
     <Compile Include="Assets\Scirpts\KeyWord\DicitonaryName.cs" />
     <Compile Include="Assets\Scirpts\KeyWord\Message.cs" />

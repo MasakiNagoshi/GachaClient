@@ -11,7 +11,7 @@ using HTTP;
 
 namespace Request
 {
-    public class HTTPRequest 
+    public class HTTPRequest
     {
         static HTTPRequest instance;
         MonoBehaviour mono;
@@ -67,7 +67,7 @@ namespace Request
         void ResponseGetLogin(string[] data)
         {
             ResponseLogin response = new ResponseLogin();
-            if(data[1] == "0")
+            if (data[1] == "0")
             {
                 response.islogin = false;
                 response.login_present = data[2];
@@ -85,7 +85,7 @@ namespace Request
             List<string> sortdata = new List<string>(data);
             sortdata.RemoveAt(0);
             ResponseGetGachaTicket response = new ResponseGetGachaTicket();
-            for(int count = 0; count < sortdata.Count; count++)
+            for (int count = 0; count < sortdata.Count; count++)
             {
                 string[] splitdata = sortdata[count].Split(NetWorkKey.SPLIT_TICKET_FONT);
                 switch (splitdata[0])
@@ -122,20 +122,20 @@ namespace Request
             List<string> sort = new List<string>(data);
             sort.RemoveAt(0);
             ResponseGacha response = new Protocol.ResponseGacha();
-            for (int count =0;count < sort.Count - 1;count++)
+            for (int count = 0; count < sort.Count - 1; count++)
             {
                 string[] splitdata = sort[count].Split(NetWorkKey.EMMISION_CHARACTER_FONT);
                 EmmisionCharacter emmision = new EmmisionCharacter();
                 emmision.dictionary_number = splitdata[0];
                 emmision.rate = splitdata[1];
-				if (splitdata [2] == NetWorkKey.DUPLICATION) 
-				{
-					emmision.duplication = true;
-				} 
-				else 
-				{
-					emmision.duplication = false;
-				}
+                if (splitdata[2] == NetWorkKey.DUPLICATION)
+                {
+                    emmision.duplication = true;
+                }
+                else
+                {
+                    emmision.duplication = false;
+                }
                 response.emmisionCharacterList.Add(emmision);
             }
             ApiClient.Instance.ResponseGacha(response);

@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/////////////////////////////////////////////////
+//制作者　名越大樹
+//スケールアニメーションを管理するクラス
+/////////////////////////////////////////////////
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,9 +10,11 @@ public class ScaleAnimationManager
 {
     List<ScaleAnimation> scaleAnimationList;
     static ScaleAnimationManager manager;
-    public static ScaleAnimationManager Instance { get { return  manager; } }
     bool isUpdateAnimation = true;
+
     public bool IsUpdateAnimation { get { return IsUpdateAnimation; } set { IsUpdateAnimation = value; } }
+    public static ScaleAnimationManager Instance { get { return manager; } }
+
     public ScaleAnimationManager()
     {
         manager = this;
@@ -27,6 +33,9 @@ public class ScaleAnimationManager
         scaleAnimationList.Add(scale);
     }
 
+    /// <summary>
+    /// 毎回更新する処理
+    /// </summary>
     public void AnimationUpdate()
     {
         if(isUpdateAnimation)

@@ -6,13 +6,11 @@ public class Testtt : MonoBehaviour {
 
     [SerializeField]
     Canvas test;
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		if(Input.GetKeyDown(KeyCode.Space))
         {
-            GetEffectManager.Instace.PlayEffect(144);
-
-            Debug.Log(Resources.Load<Sprite>("Image/CharacterIllust/SSRRateImage/" + 144));
+            GetEffectManager.Instace.PlayEffect(151);
         }
 	}
 }

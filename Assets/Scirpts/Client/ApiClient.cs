@@ -75,9 +75,9 @@ namespace HTTP
         public void RequestGetGachaTiket(RequestGetGachaTicket param)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
-            data.Add(NetWorkKey.USER_ID,param.user_id);
+            data.Add(NetWorkKey.USER_ID, param.user_id);
             data.Add(NetWorkKey.GET_REQUEST, NetWorkKey.TICKET);
-            data.Add(NetWorkKey.STATUS,"1");
+            data.Add(NetWorkKey.STATUS, "1");
             StartCoroutine(requester.RequestPost(ip, data));
         }
 
@@ -100,9 +100,9 @@ namespace HTTP
         public void RequestLogin(RequestLogin param)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
-            data.Add(NetWorkKey.USER_ID,param.user_ip);
-            data.Add(NetWorkKey.GET_REQUEST,NetWorkKey.LOGIN);
-            data.Add(NetWorkKey.STATUS,"1");
+            data.Add(NetWorkKey.USER_ID, param.user_ip);
+            data.Add(NetWorkKey.GET_REQUEST, NetWorkKey.LOGIN);
+            data.Add(NetWorkKey.STATUS, "1");
             StartCoroutine(requester.RequestPost(ip, data));
         }
 
@@ -112,16 +112,16 @@ namespace HTTP
         /// <param name="response"></param>
         public void ResponseLogin(ResponseLogin response)
         {
-            if(response.islogin)
+            if (response.islogin)
             {
                 Debug.Log("ログインしていました");
-                SceneManagers.SceneLoad( SceneManagers.SceneName.Main);
+                SceneManagers.SceneLoad(SceneManagers.SceneName.Main);
             }
 
             else
             {
                 Debug.Log("ログインまだでした");
-                PlayerPrefs.SetString(NetWorkKey.LOGIN_PRESENT,response.login_present);
+                PlayerPrefs.SetString(NetWorkKey.LOGIN_PRESENT, response.login_present);
                 SceneManagers.SceneLoad(SceneManagers.SceneName.LoginPresent);
             }
         }
@@ -146,7 +146,7 @@ namespace HTTP
         {
             PlayerPrefs.SetString(NetWorkKey.USER_ID, response.user_id);
             PlayerPrefs.SetString(NetWorkKey.USER_NAME, response.user_name);
-            SceneManagers.SceneLoad( SceneManagers.SceneName.Title);
+            SceneManagers.SceneLoad(SceneManagers.SceneName.Title);
             Debug.Log("ユーザー登録完了");
         }
 
@@ -161,9 +161,9 @@ namespace HTTP
             data.Add(NetWorkKey.GACHA_LIMIT, param.limit);
             data.Add(NetWorkKey.USER_ID, param.user_id);
             data.Add(NetWorkKey.REQUEST_STATUS, NetWorkKey.GACHA);
-			data.Add(NetWorkKey.USE_NORMAL,param.used_noraml_ticket);
-			data.Add(NetWorkKey.USE_SPECAL, param.used_specal_ticket);
-			Debug.Log (param.status);
+            data.Add(NetWorkKey.USE_NORMAL, param.used_noraml_ticket);
+            data.Add(NetWorkKey.USE_SPECAL, param.used_specal_ticket);
+            Debug.Log(param.status);
             StartCoroutine(requester.RequestPost(ip, data));
         }
 
@@ -173,9 +173,9 @@ namespace HTTP
         /// <param name="response"></param>
         public void ResponseGacha(ResponseGacha response)
         {
-            foreach(EmmisionCharacter character in response.emmisionCharacterList)
+            foreach (EmmisionCharacter character in response.emmisionCharacterList)
             {
-				GachaRate rate = new GachaRate(character.rate,character.dictionary_number,character.duplication);
+                GachaRate rate = new GachaRate(character.rate, character.dictionary_number, character.duplication);
             }
             Canvas canvas = CanvasManager.Canvas.GetComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceCamera;

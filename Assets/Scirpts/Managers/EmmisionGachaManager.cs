@@ -2,8 +2,8 @@
 //製作者　名越大樹
 //排出するキャラクターを管理するクラス
 //////////////////////////////////////////
-using UnityEngine;
 
+using UnityEngine;
 
 public class EmmisionGachaManager
 {
@@ -19,5 +19,4 @@ public class EmmisionGachaManager
         AttachRate.AttachGachaRate.Gacha();
         SkipButton skip = new SkipButton();
     }
-
 }

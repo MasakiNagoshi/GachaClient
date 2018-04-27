@@ -34,7 +34,6 @@ public class GetFireEffect : GetEffectBase
         number = dictionary;
         Debug.Log("炎の演出開始");
         GetEffectManager.Instace.EffectInstance = this;
-        Debug.Log(GetEffectManager.Instace.EffectInstance);
         effectTimer = new List<float>();
         Ini();
     }
@@ -82,8 +81,7 @@ public class GetFireEffect : GetEffectBase
 
     void GetImage()
     {
-       Image get = GetEffectManager.Instace.GetImage;
-        get.color = Color.white;
+        base.GetShowImage();
     }
 
     void ShowName()

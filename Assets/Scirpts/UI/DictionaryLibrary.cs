@@ -47,7 +47,8 @@ public class DictionaryLibrary : MonoBehaviour
         foreach (int index in getnumbers)
         {
             Image image = instanceobjList[index - 1].GetComponent<Image>();
-            instanceobjList[index - 1].onClick.AddListener(() => {
+            instanceobjList[index - 1].onClick.AddListener(() => 
+            {
                 SetCrySE(index);
             });
 
@@ -59,9 +60,10 @@ public class DictionaryLibrary : MonoBehaviour
 
     public void  SetCrySE(int index)
     {
-        Debug.Log("hoge");
+        Debug.Log(index);
         AudioSource source = instanceobjList[index - 1].GetComponent<AudioSource>();
         source.clip = Resources.Load<AudioClip>("SE/Cry/" + index.ToString());
+
         source.Play();
     }
     public IEnumerator Check(List<int> getnumbers)

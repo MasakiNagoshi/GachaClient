@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GachaSceneIni : MonoBehaviour {
+public class GachaSceneIni : MonoBehaviour
+{
 
 	// Use this for initialization
 	void Start () {

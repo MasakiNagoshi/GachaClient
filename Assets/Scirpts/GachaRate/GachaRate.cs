@@ -18,37 +18,35 @@ public  class GachaRate : MonoBehaviour
 
     public GachaRate() { }
 
-	public GachaRate(string rate,string dictionary,bool duplication)
+	public GachaRate(string rate, string dictionary, bool duplication)
     {
         switch (rate)
         {
 			case N_RATE:
 			GachaRate nrate = new NRate();
                 gachaRate = nrate;
-			nrate.Instance (rate,RateManager.RateObj,EmmisionGachaManager.EmmisonCharacteresParent,duplication,dictionary);
+			nrate.Instance (rate,EmmisionCharacterRateManager.RateObj, EmmisionGachaManager.EmmisonCharacteresParent, duplication, dictionary);
                 break;
             case R_RATE:
                 GachaRate rrate = new RRate();
                 gachaRate = rrate;
-                rrate.Instance(rate,RateManager.RateObj, EmmisionGachaManager.EmmisonCharacteresParent, duplication,dictionary);
+                rrate.Instance(rate, EmmisionCharacterRateManager.RateObj, EmmisionGachaManager.EmmisonCharacteresParent, duplication, dictionary);
                 break;
             case SR_RATE:
                 GachaRate srrate = new SRRate();
                 gachaRate = srrate;
-                srrate.Instance(rate,RateManager.RateObj, EmmisionGachaManager.EmmisonCharacteresParent, duplication, dictionary);
+                srrate.Instance(rate, EmmisionCharacterRateManager.RateObj, EmmisionGachaManager.EmmisonCharacteresParent, duplication, dictionary);
                 break;
             case SSR_RATE:
                 GachaRate ssrrate = new SSRRate();
                 gachaRate = ssrrate;
-                ssrrate.Instance(rate,RateManager.RateObj, EmmisionGachaManager.EmmisonCharacteresParent, duplication, dictionary);
+                ssrrate.Instance(rate, EmmisionCharacterRateManager.RateObj, EmmisionGachaManager.EmmisonCharacteresParent, duplication, dictionary);
                 ssrrate.EffectAction();
                 break;
         }
     }
 
-    public virtual void EffectAction()
-    {
-    }
+    public virtual void EffectAction(){}
 
     public virtual Button GetButtonObj()
     {
@@ -64,13 +62,12 @@ public  class GachaRate : MonoBehaviour
     /// <param name="duplication"></param>
     /// <param name="dictionary"></param>
     /// <returns></returns>
-    public virtual Button Instance(string rate, Button instanceobj, GameObject parent, bool duplication,string dictionary)
+    public virtual Button Instance(string rate, Button instanceobj, GameObject parent, bool duplication, string dictionary)
     {
         var obj = Instantiate(instanceobj);
         obj.transform.parent = parent.transform;
         obj.onClick.AddListener(() =>
         {
-            Debug.Log(dictionary);
             ChangeSprite(rate,duplication,int.Parse(dictionary),obj);
             if(!duplication)
             {
@@ -81,8 +78,8 @@ public  class GachaRate : MonoBehaviour
             }
         });
         obj.GetComponent<Image>().sprite = EmmisionGachaIllustlation.Instance.GetMonsterBallRateImage(rate);
-        SkipButton.Instance.AddSkip(rate,duplication,int.Parse(dictionary),obj,this);
-        ScaleAnimationManager.Instance.CreateScaleAnimation(obj.gameObject,this);
+        SkipButton.Instance.AddSkip(rate, duplication, int.Parse(dictionary), obj,this);
+        ScaleAnimationManager.Instance.CreateScaleAnimation(obj.gameObject, this);
         buttonObj = obj;
         return obj;
     }
