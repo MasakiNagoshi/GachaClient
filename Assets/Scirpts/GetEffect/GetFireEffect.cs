@@ -99,8 +99,8 @@ public class GetFireEffect : GetEffectBase
     {
         Destroy(effect);
         GetEffectManager.Instace.Finish();
-
     }
+
     public override void EffectUpdate()
     {
         bool result = base.IsClick();

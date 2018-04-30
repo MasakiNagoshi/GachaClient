@@ -10,19 +10,23 @@ public class Confirmation : MonoBehaviour
 {
     Text rateText;
     Text messageText;
-
+    Button okButton;
     void Start()
     {
         GameObject text = GameObject.Find(ObjectName.MESSAGE_TEXT);
         GameObject rate = GameObject.Find(ObjectName.RATE_TEXT);
-        Debug.Log(rate);
+        okButton = GameObject.Find("OkButton").GetComponent<Button>();
         rateText = rate.GetComponent<Text>();
         messageText = text.GetComponent<Text>();
     }
 
     public void OkButton()
     {
-        SceneManagers.SceneLoad(SceneManagers.SceneName.EmmisionGacha);
+        bool result =ErrorCheck.Instance.CheckUseCount(AttachRate.AttachGachaRate.GetUseCount());
+        if (result)
+        {
+            SceneManagers.SceneLoad(SceneManagers.SceneName.EmmisionGacha);
+        }
     }
 
     public void CancelButton()
@@ -40,6 +44,17 @@ public class Confirmation : MonoBehaviour
         else
         {
             AttachRate.AttachGachaRate.SetUseCount(ticket);
+        }
+        if(ticket == 0)
+        {
+            okButton.enabled = false;
+            okButton.GetComponent<Image>().color = Color.gray;
+        }
+        else
+        {
+            okButton.enabled = true;
+            okButton.GetComponent<Image>().color = Color.white;
+
         }
         UpdateUseMessage();
     }

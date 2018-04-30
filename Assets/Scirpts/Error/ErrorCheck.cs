@@ -38,11 +38,22 @@ public class ErrorCheck
 
     public bool CheckAddUseCount(int usecount, int maxcount)
     {
-        if (usecount >= maxcount)
+        if (usecount > maxcount)
         {
             return false;
         }
+
         else if (usecount <= 0)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public bool CheckUseCount(int usecount)
+    {
+        if(usecount == 0)
         {
             return false;
         }

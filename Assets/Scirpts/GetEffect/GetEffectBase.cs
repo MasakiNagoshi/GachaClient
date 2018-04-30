@@ -25,7 +25,8 @@ public class GetEffectBase : MonoBehaviour
     public virtual void ShowCharacter(int number)
     {
         Image image = GetEffectManager.Instace.CharacterImage;
-        image.sprite = Resources.Load<Sprite>(RATE_FILE + number);
+        string correctionnumber = NumberCorrection.Instnce.Correction(number);
+        image.sprite = Resources.Load<Sprite>(RATE_FILE + correctionnumber);
         image.color = Color.white;
         ScaleAnimationManager.Instance.CreateScaleAnimation(image.gameObject);
     }

@@ -36,7 +36,7 @@ public class GetEffectManager
     public Text CharacterText { get { return characterName; } }
     public AudioSource Audio { get { return source; } }
     public Image GetImage { get { return getImage; } }
-    public  GetEffectBase EffectInstance{get { return effectBase; }set { effectBase = value; }}
+    public GetEffectBase EffectInstance { get { return effectBase; } set { effectBase = value; } }
     public Image CharacterImage { get { return character; } }
     public static GetEffectManager Instace { get { return instance; } }
 
@@ -47,25 +47,25 @@ public class GetEffectManager
 
     public void PlayEffect(int number)
     {
-        switch (number)
+        GetCharacterType.Type type = GetCharacterType.GetType(number);
+        switch (type)
         {
-            case 146://ファイア-
+            case GetCharacterType.Type.Fire://ファイア-
                 GetEffectBase fire = new GetFireEffect(number);
                 effectBase = fire;
                 isUpdate = true;
                 break;
-            case 144://フリーザー
+            case GetCharacterType.Type.Ice://フリーザー
                 GetEffectBase friiezer = new GetIceEffect(number);
                 effectBase = friiezer;
                 isUpdate = true;
                 break;
-            case 145://サンダー
+            case GetCharacterType.Type.Thunder://サンダー
                 GetEffectBase thunder = new GetThunderEffect(number);
                 effectBase = thunder;
                 isUpdate = true;
                 break;
-            case 150://ミュウツー
-            case 151://ミュウ
+            case GetCharacterType.Type.Esper://ミュウツー
                 GetEffectBase esper = new GetEsperEffect(number);
                 effectBase = esper;
                 isUpdate = true;

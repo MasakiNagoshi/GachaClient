@@ -88,7 +88,7 @@ namespace HTTP
         public void ResponseGetGachaTicket(ResponseGetGachaTicket response)
         {
             NormalTicket.Instance.Count = int.Parse(response.noraml);
-            NormalTicket.Instance.Ticket.text = "☓" + response.noraml;
+            NormalTicket.Instance.Ticket.text = "X" + response.noraml;
             SpecalTicket.Instance.Count = int.Parse(response.specal);
             SpecalTicket.Instance.Ticket.text = "X" + response.specal;
         }

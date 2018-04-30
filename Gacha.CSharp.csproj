@@ -78,12 +78,16 @@
     <Compile Include="Assets\ALLDELETE.cs" />
     <Compile Include="Assets\Scirpts\Animation\FadeAnimation.cs" />
     <Compile Include="Assets\Scirpts\Animation\ScaleAnimation.cs" />
+    <Compile Include="Assets\Scirpts\Characters\GetCharacterType.cs" />
+    <Compile Include="Assets\Scirpts\Characters\NumberCorrection.cs" />
     <Compile Include="Assets\Scirpts\Client\ApiClient.cs" />
     <Compile Include="Assets\Scirpts\Client\HTTPRequest.cs" />
     <Compile Include="Assets\Scirpts\Client\Protocol.cs" />
     <Compile Include="Assets\Scirpts\Client\Test.cs" />
+    <Compile Include="Assets\Scirpts\Control\Click.cs" />
     <Compile Include="Assets\Scirpts\Control\GachaClick.cs" />
     <Compile Include="Assets\Scirpts\Effect\EmmisionGachaEffect.cs" />
+    <Compile Include="Assets\Scirpts\EmmisionCharacter\CrySe.cs" />
     <Compile Include="Assets\Scirpts\Error\ErrorCheck.cs" />
     <Compile Include="Assets\Scirpts\GachaRate\GachaRate.cs" />
     <Compile Include="Assets\Scirpts\GachaRate\NRate.cs" />

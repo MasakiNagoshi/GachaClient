@@ -35,6 +35,10 @@ public class NormalGacha : GachaBase
 
     public override void Confirmation()
     {
+        if (AttachRate.AttachGachaRate != this)
+        {
+            Click.Instance.PlaySe();
+        }
         AttachRate.AttachGachaRate = this;
         ConfirmationManager.Instance.SetActive(true);
     }
@@ -48,6 +52,7 @@ public class NormalGacha : GachaBase
     {
         return NormalTicket.Instance.GetRate();
     }
+
     public override void Gacha()
     {
         RequestGacha param = new RequestGacha();

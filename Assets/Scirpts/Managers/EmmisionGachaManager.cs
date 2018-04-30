@@ -18,5 +18,6 @@ public class EmmisionGachaManager
         EmmisionGachaIllustlation illust = new EmmisionGachaIllustlation(AttachRate.AttachGachaRate.GetGachaRate());
         AttachRate.AttachGachaRate.Gacha();
         SkipButton skip = new SkipButton();
+        CrySe cry = new CrySe();
     }
 }

@@ -3,7 +3,6 @@
 //排出キャラクターのレートの基底クラス
 ///////////////////////////////////////////
 
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,7 +34,7 @@ public  class GachaRate : MonoBehaviour
             case SR_RATE:
                 GachaRate srrate = new SRRate();
                 gachaRate = srrate;
-                srrate.Instance(rate, EmmisionCharacterRateManager.RateObj, EmmisionGachaManager.EmmisonCharacteresParent, duplication, dictionary);
+                srrate.Instance(rate, EmmisionCharacterRateManager.RateObj, EmmisionGachaManager.EmmisonCharacteresParent, duplication, dictionary);                
                 break;
             case SSR_RATE:
                 GachaRate ssrrate = new SSRRate();
@@ -68,6 +67,11 @@ public  class GachaRate : MonoBehaviour
         obj.transform.parent = parent.transform;
         obj.onClick.AddListener(() =>
         {
+            if (rate != SSR_RATE)
+            {
+                CrySe.Instance.ChangeSe(Resources.Load<AudioClip>("SE/Cry/" + dictionary));
+                CrySe.Instance.PlaySe();
+            }
             ChangeSprite(rate,duplication,int.Parse(dictionary),obj);
             if(!duplication)
             {

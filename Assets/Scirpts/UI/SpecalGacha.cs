@@ -44,6 +44,7 @@ public class SpecalGacha : GachaBase
 
     public override void Confirmation()
     {
+        Click.Instance.PlaySe();
         AttachRate.AttachGachaRate = this;
         ConfirmationManager.Instance.SetActive(true);
     }
