@@ -18,7 +18,6 @@ public class GetCharacterType
         Flight,
     }
 
-
     public static Type GetType(int number)
     {
         switch (number)
@@ -40,7 +39,6 @@ public class GetCharacterType
             case 145:
                 return Type.Thunder;
         }
-
         return Type.None;
     }
 

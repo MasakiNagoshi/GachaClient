@@ -10,7 +10,7 @@ public class Testtt : MonoBehaviour {
     {
 		if(Input.GetKeyDown(KeyCode.Space))
         {
-            GetEffectManager.Instace.PlayEffect(6);
+            GetEffectManager.Instace.PlayEffect(151);
         }
 	}
 }

@@ -17,7 +17,6 @@ public class EmmisionUpdateManager
     {
          ScaleAniamtion();
          GetEffectUpdate();
-
     }
 
     void GetEffectUpdate()
