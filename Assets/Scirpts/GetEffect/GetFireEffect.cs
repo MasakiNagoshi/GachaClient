@@ -5,7 +5,6 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GetFireEffect : GetEffectBase
 {
@@ -44,7 +43,7 @@ public class GetFireEffect : GetEffectBase
         IniTimer();
         int number = GetNumber();
         GameObject effet = Resources.Load<GameObject>(EFFECT_FIRE_START);
-        GameObject instance = Instantiate(effet,Camera.main.transform.position,Quaternion.identity);
+        GameObject instance = Instantiate(effet, Camera.main.transform.position, Quaternion.identity);
         GetEffectManager.Instace.Audio.clip = Resources.Load<AudioClip>(FIRE_START_SE);
         GetEffectManager.Instace.Audio.Play();
         Destroy(instance, 3);
@@ -114,6 +113,7 @@ public class GetFireEffect : GetEffectBase
         }
 
         effectTimer[0] -= Time.deltaTime;
+
         if (effectTimer[0] <= 0.0f)
         {
             effectTimer.RemoveAt(0);
@@ -127,9 +127,6 @@ public class GetFireEffect : GetEffectBase
         {
             case ActionList.TipeMark:
                 MarkObj();
-                break;
-            case ActionList.Finish:
-                // Finish();
                 break;
             case ActionList.ShowCharacter:
                 ShowCharacter();

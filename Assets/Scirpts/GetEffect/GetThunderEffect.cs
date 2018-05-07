@@ -1,14 +1,17 @@
-﻿using System.Collections;
+﻿/////////////////////////////////////////////////////
+//制作者　名越大樹
+//電気タイプを取得したときの演出に関するクラス
+/////////////////////////////////////////////////////
+
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GetThunderEffect : GetEffectBase
 {
     List<float> effectTimer;
     int number;
     GameObject effect;
-    const string FIRE_START_SE = "SE/Effect/fire01";
+    const string THUNDER_START_SE = "SE/Effect/electrice01";
     const string EFFECT_THUNDER_START = "Effect/ThunderStart";
     const string EFFECT_THUNDER_MARK = "Effect/ThunderEffect";
     const string FIRE_MARK_SE = "SE/Effect/fire03";
@@ -28,7 +31,6 @@ public class GetThunderEffect : GetEffectBase
     public GetThunderEffect(int dictionary)
     {
         number = dictionary;
-        Debug.Log("電気の演出開始");
         GetEffectManager.Instace.EffectInstance = this;
         Debug.Log(GetEffectManager.Instace.EffectInstance);
         effectTimer = new List<float>();
@@ -42,7 +44,7 @@ public class GetThunderEffect : GetEffectBase
         int number = GetNumber();
         GameObject effet = Resources.Load<GameObject>(EFFECT_THUNDER_START);
         GameObject instance = Instantiate(effet, Camera.main.transform.position, Quaternion.identity);
-        GetEffectManager.Instace.Audio.clip = Resources.Load<AudioClip>(FIRE_START_SE);
+        GetEffectManager.Instace.Audio.clip = Resources.Load<AudioClip>(THUNDER_START_SE);
         GetEffectManager.Instace.Audio.Play();
         Destroy(instance, 3);
         GetEffectManager.Instace.BackGroundColorChange(GetEffectManager.BackGroundColor.Thunder);
@@ -101,10 +103,12 @@ public class GetThunderEffect : GetEffectBase
     public override void EffectUpdate()
     {
         bool result = base.IsClick();
+
         if (result)
         {
             Finish();
         }
+
         if (action == ActionList.Finish)
         {
             return;
@@ -143,5 +147,4 @@ public class GetThunderEffect : GetEffectBase
         }
         action++;
     }
-
 }

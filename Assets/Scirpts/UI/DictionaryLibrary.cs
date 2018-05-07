@@ -1,7 +1,15 @@
-﻿using System.Collections;
+﻿//////////////////////////////////////////////////
+//制作者　名越大樹
+//取得したキャラクターを表示させるクラス
+//////////////////////////////////////////////////
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Protocol;
+using HTTP;
+
 public class DictionaryLibrary : MonoBehaviour
 {
     [SerializeField]
@@ -10,13 +18,15 @@ public class DictionaryLibrary : MonoBehaviour
     Button libraryObj;
     [SerializeField]
     GameObject parentObj;
+    const string IMAGE_FOLDER = "Image/Dictionary/";
+    const string SE_FOLDER = "SE/Cry/";
     public static DictionaryLibrary instance;
     public List<Button> instanceobjList = new List<Button>();
 
     void Start ()
     {
         instance = this;
-        AllGetNumbers.AllGetNumber();
+        AllGetNumbers();
 	}
 
     IEnumerator InstanceLibrary(List<int> getnumbers)
@@ -42,7 +52,7 @@ public class DictionaryLibrary : MonoBehaviour
                 number = countNumber.ToString();
             }
             Image image = instanceobjList[countNumber - 1].GetComponent<Image>();
-            image.sprite = Resources.Load<Sprite>("Image/Dictionary/" + number);
+            image.sprite = Resources.Load<Sprite>(IMAGE_FOLDER + number);
         }
         foreach (int index in getnumbers)
         {
@@ -54,21 +64,26 @@ public class DictionaryLibrary : MonoBehaviour
 
             image.color = Color.white;
         }
-
         yield return null;
     }
 
     public void  SetCrySE(int index)
     {
-        Debug.Log(index);
         AudioSource source = instanceobjList[index - 1].GetComponent<AudioSource>();
-        source.clip = Resources.Load<AudioClip>("SE/Cry/" + index.ToString());
-
+        source.clip = Resources.Load<AudioClip>( SE_FOLDER + index.ToString());
         source.Play();
     }
+
     public IEnumerator Check(List<int> getnumbers)
     {
         StartCoroutine(InstanceLibrary(getnumbers));
         yield return null;
+    }
+
+    void AllGetNumbers()
+    {
+        RequestGetDictionary param = new RequestGetDictionary();
+        param.user_id = PlayerPrefs.GetString(NetWorkKey.USER_ID);
+        ApiClient.Instance.RequestGetDictionary(param);
     }
 }

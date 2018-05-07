@@ -13,7 +13,13 @@ public class ScaleAnimationManager
     bool isUpdateAnimation = true;
 
     public bool IsUpdateAnimation { get { return IsUpdateAnimation; } set { IsUpdateAnimation = value; } }
-    public static ScaleAnimationManager Instance { get { return manager; } }
+    public static ScaleAnimationManager Instance {
+        get {
+            if (manager == null)
+            {
+                ScaleAnimationManager instance = new ScaleAnimationManager();
+            }
+            return manager; } }
 
     public ScaleAnimationManager()
     {
@@ -30,6 +36,12 @@ public class ScaleAnimationManager
     public void CreateScaleAnimation(GameObject target)
     {
         ScaleAnimation scale = new ScaleAnimation(target);
+        scaleAnimationList.Add(scale);
+    }
+
+    public void CreateScaleAnimation(GameObject target, float speed)
+    {
+        ScaleAnimation scale = new ScaleAnimation(target, speed);
         scaleAnimationList.Add(scale);
     }
 

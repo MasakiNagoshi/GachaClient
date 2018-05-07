@@ -12,6 +12,11 @@ public class EmmisionGachaManager
 
     public EmmisionGachaManager()
     {
+        Ini();
+    }
+
+    void Ini()
+    {
         GameObject obj = GameObject.Find(ObjectName.EMMISION_PARENT);
         emmisonCharacteresParent = obj;
         ScaleAnimationManager animation = new ScaleAnimationManager();

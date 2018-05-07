@@ -1,6 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿/////////////////////////////////////////////////////
+//制作者　名越大樹
+//キャラクターのタイプを管理するクラス
+/////////////////////////////////////////////////////
 
 public class GetCharacterType
 {
@@ -41,8 +42,4 @@ public class GetCharacterType
         }
         return Type.None;
     }
-
-
-
-
 }

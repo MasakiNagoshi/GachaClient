@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿////////////////////////////////////////
+//制作者　名越大樹
+//ノーマルチケットに関するクラス
+////////////////////////////////////////
+
+using UnityEngine;
 using UnityEngine.UI;
 
 public class NormalTicket : TicketBase
@@ -54,11 +59,13 @@ public class NormalTicket : TicketBase
             useCount += addusecount;
         }
     }
+
     public int UseCount
     {
         get { return useCount; }
         set { useCount = value; }
     }
+
     public int Count { get { return count; } set { count = value; } }
     public static NormalTicket Instance { get { return noraml; } }
 }

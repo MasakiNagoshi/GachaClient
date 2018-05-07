@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿////////////////////////////////////////////////
+//制作者　名越大樹
+//クリックしたときのSEに関するクラス
+/////////////////////////////////////////////////
+
 using UnityEngine;
 
 public class Click : MonoBehaviour
@@ -14,7 +17,6 @@ public class Click : MonoBehaviour
         {
             if (instance == null && audio == null)
             {
-                Debug.Log("hage");
                 var click = new Click();
             }
             return instance;

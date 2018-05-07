@@ -3,14 +3,16 @@
 //ゲーム内のエラー内容に対するクラス
 ////////////////////////////////////////////
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ErrorCheck
 {
     static ErrorCheck instance;
+    ErrorUI errorUI;
+    public enum ErrorStatus
+    {
+        FailedToConnect,
+    }
 
     public static ErrorCheck Instance
     {
@@ -59,4 +61,20 @@ public class ErrorCheck
         }
         return true;
     }
+
+    public void HTTPError(string error)
+    {
+        string message = "";
+        if (error == "Failed to connect to 150.95.179.163 port 80: Host unreachable")
+        {
+            message = "ネットがつながっていませんネット状況を確認してください";
+        }
+        else
+        {
+            message = "サーバーのメンテナンス中ですしばらくお待ちください";
+        }
+                ErrorUI ui = new ErrorUI(message);
+                errorUI = ui;
+    }
+
 }

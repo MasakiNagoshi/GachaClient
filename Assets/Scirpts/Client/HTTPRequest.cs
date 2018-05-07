@@ -38,6 +38,7 @@ namespace Request
             else
             {
                 Debug.Log(www.error);
+                ErrorCheck.Instance.HTTPError(www.error);
             }
         }
 

@@ -16,7 +16,7 @@ public class NRate : GachaRate
         return null;
     }
 
-    public override void ChangeSprite(string rate,bool duplication,int number,Button rateobj)
+    public override void ChangeSprite(string rate, bool duplication, int number, Button rateobj)
     {
         base.ChangeSprite(rate, duplication, number, rateobj);
     }

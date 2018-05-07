@@ -1,4 +1,8 @@
-﻿
+﻿///////////////////////////////////////////////
+//制作者　名越大樹
+//スペシャルチケットに関するクラス
+///////////////////////////////////////////////
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +14,12 @@ public class SpecalTicket
     int useCount = 0;
     const string RATE = "スペシャルチケット";
     const int MAX_USE_COUNT = 10;
+
+    public int UseCount { get { return useCount; } set { useCount = value; } }
+    public static SpecalTicket Instance { get { return instance; } }
+    public Text Ticket { get { return text; } set { text = value; } }
+    public int Count { get { return count; } set { count = value; } }
+
     public string GetRate()
     {
         return RATE;
@@ -21,6 +31,7 @@ public class SpecalTicket
         GameObject obj = GameObject.Find(ObjectName.SPECAL_TICKET);
         text = obj.GetComponent<Text>();
     }
+
     public int GetMaxUseCount()
     {
         return MAX_USE_COUNT;
@@ -43,9 +54,4 @@ public class SpecalTicket
             useCount += addusecount;
         }
     }
-
-    public int UseCount { get { return useCount; } set { useCount = value; } }
-    public static SpecalTicket Instance { get { return instance; } }
-    public Text Ticket{ get { return text; }  set { text = value; } }
-    public int Count { get { return count; } set { count = value; } }
 }

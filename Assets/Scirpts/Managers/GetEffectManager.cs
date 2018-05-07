@@ -8,18 +8,12 @@ using UnityEngine.UI;
 
 public class GetEffectManager
 {
-    const string BACK_GROUND_NAME = "BackGroundObj";
-    const string EFFECT_CANVAS_NAME = "GetEffectCanvas";
-    const string CHARACTER_IMAGE = "CharacterImage";
-    const string CHARACTER_TEXT_NAME = "CharacterText";
-    const string GET_IMAGE_NAME = "GetImage";
-    const string MARK_NAME = "Mark";
     static GetEffectManager instance;
-    SpriteRenderer backGroundObj;
-    Canvas getEffectCanvas;
-    Image character;
-    Text characterName;
-    Vector3 tipeMarkObj;
+    SpriteRenderer backGroundObj;//演習用の背景画像
+    Canvas getEffectCanvas;//演出用のCanvas
+    Image character;//取得したキャラクターの画像
+    Text characterName;//キャラクターの名まえを表示するテキスト
+    Vector3 tipeMarkObj;//取得したキャラクターのタイプの演出場所
     Image getImage;
     static GetEffectBase effectBase;
     AudioSource source;
@@ -31,6 +25,12 @@ public class GetEffectManager
         Thunder,
         Esper,
     }
+    const string BACK_GROUND_NAME = "BackGroundObj";
+    const string EFFECT_CANVAS_NAME = "GetEffectCanvas";
+    const string CHARACTER_IMAGE = "CharacterImage";
+    const string CHARACTER_TEXT_NAME = "CharacterText";
+    const string GET_IMAGE_NAME = "GetImage";
+    const string MARK_NAME = "Mark";
 
     public Vector3 TipeMrakPostion { get { return tipeMarkObj; } }
     public Text CharacterText { get { return characterName; } }
@@ -50,24 +50,34 @@ public class GetEffectManager
         GetCharacterType.Type type = GetCharacterType.GetType(number);
         switch (type)
         {
-            case GetCharacterType.Type.Fire://ファイア-
+            case GetCharacterType.Type.Fire:
                 GetEffectBase fire = new GetFireEffect(number);
                 effectBase = fire;
                 isUpdate = true;
                 break;
-            case GetCharacterType.Type.Ice://フリーザー
+            case GetCharacterType.Type.Ice:
                 GetEffectBase friiezer = new GetIceEffect(number);
                 effectBase = friiezer;
                 isUpdate = true;
                 break;
-            case GetCharacterType.Type.Thunder://サンダー
+            case GetCharacterType.Type.Thunder:
                 GetEffectBase thunder = new GetThunderEffect(number);
                 effectBase = thunder;
                 isUpdate = true;
                 break;
-            case GetCharacterType.Type.Esper://ミュウツー
+            case GetCharacterType.Type.Esper:
                 GetEffectBase esper = new GetEsperEffect(number);
                 effectBase = esper;
+                isUpdate = true;
+                break;
+            case GetCharacterType.Type.Aqua:
+                GetEffectBase aqua = new GetWaterEffect(number);
+                effectBase = aqua;
+                isUpdate = true;
+                break;
+            case GetCharacterType.Type.Leaf:
+                GetEffectBase leaf = new GetLeafEffect(number);
+                effectBase = leaf;
                 isUpdate = true;
                 break;
         }

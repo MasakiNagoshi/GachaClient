@@ -66,7 +66,6 @@ public class SpecalGacha : GachaBase
         param.status = GACHA_RATE;
         param.limit = SpecalTicket.Instance.Count.ToString();
         param.used_specal_ticket = SpecalTicket.Instance.UseCount.ToString();
-        Debug.Log(SpecalTicket.Instance.Count.ToString());
         param.used_noraml_ticket = 0.ToString();
         ApiClient.Instance.RequesrGacha(param);
     }

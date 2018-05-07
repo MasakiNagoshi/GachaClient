@@ -1,4 +1,8 @@
-﻿
+﻿////////////////////////////////////////////
+//制作者　名越大樹
+//鳴き声を再生するクラス
+////////////////////////////////////////////
+
 using UnityEngine;
 
 public class CrySe
@@ -6,6 +10,7 @@ public class CrySe
     static CrySe instance;
     AudioSource audio;
     GameObject obj;
+
     public static CrySe Instance
     {
         get
@@ -15,7 +20,6 @@ public class CrySe
                 CrySe cryse = new CrySe();
             }
             return instance;
-
         }
     }
 

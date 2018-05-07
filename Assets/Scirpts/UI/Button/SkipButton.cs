@@ -3,7 +3,6 @@
 //排出したガチャを全表示させるクラス
 ///////////////////////////////////
 
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +10,6 @@ public class SkipButton
 {
     static SkipButton instance;
     public static SkipButton Instance { get { return instance; } }
-    List<GachaRate> gachaList = new List<GachaRate>();
     Button buttonobj;
     const string SKIP_OBJ = "SkipButton"; 
 
@@ -36,5 +34,4 @@ public class SkipButton
         }
         );
     }
-
 }

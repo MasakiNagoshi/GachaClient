@@ -1,14 +1,17 @@
-﻿using System.Collections;
+﻿/////////////////////////////////////////////////
+//制作者　名越大樹
+//エスパータイプの取得したときの演出に関するクラス
+/////////////////////////////////////////////////
+
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GetEsperEffect : GetEffectBase
 {
-
     List<float> effectTimer;
     int number;
     GameObject effect;
-    const string FIRE_START_SE = "SE/Effect/fire01";
+    const string ESPER_START_SE = "SE/Effect/fire01";
     const string EFFECT_ESPER_START = "Effect/EsperStart";
     const string EFFECT_ESPER_MARK = "Effect/EsperEffect";
     const string FIRE_MARK_SE = "SE/Effect/fire03";
@@ -30,7 +33,6 @@ public class GetEsperEffect : GetEffectBase
         number = dictionary;
         Debug.Log("エスパーの演出開始");
         GetEffectManager.Instace.EffectInstance = this;
-        Debug.Log(GetEffectManager.Instace.EffectInstance);
         effectTimer = new List<float>();
         Ini();
     }
@@ -42,7 +44,7 @@ public class GetEsperEffect : GetEffectBase
         int number = GetNumber();
         GameObject effet = Resources.Load<GameObject>(EFFECT_ESPER_START);
         GameObject instance = Instantiate(effet,Vector3.zero, Quaternion.identity);
-        GetEffectManager.Instace.Audio.clip = Resources.Load<AudioClip>(FIRE_START_SE);
+        GetEffectManager.Instace.Audio.clip = Resources.Load<AudioClip>(ESPER_START_SE);
         GetEffectManager.Instace.Audio.Play();
         Destroy(instance, 10);
         GetEffectManager.Instace.BackGroundColorChange(GetEffectManager.BackGroundColor.Esper);
@@ -86,7 +88,6 @@ public class GetEsperEffect : GetEffectBase
         base.ShowName(number);
     }
 
-
     void PlayCharacterSe()
     {
         base.PlayeCharacterCrySe(number);
@@ -124,9 +125,6 @@ public class GetEsperEffect : GetEffectBase
         {
             case ActionList.TipeMark:
                 MarkObj();
-                break;
-            case ActionList.Finish:
-                // Finish();
                 break;
             case ActionList.ShowCharacter:
                 ShowCharacter();

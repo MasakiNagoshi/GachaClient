@@ -1,10 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿/////////////////////////////////////////////
+//制作者　名越大樹
+//ポケモンの名前を管理するクラス
+/////////////////////////////////////////////
 
 public class DicitonaryName
 {
     static DicitonaryName instance;
+
     public static DicitonaryName Instance
     {
         get
@@ -16,14 +18,22 @@ public class DicitonaryName
             return instance;
         }
     }
+
     DicitonaryName()
     {
         instance = this;
     }
+
     public string GetName(int number)
     {
         switch (number)
         {
+            case 3:
+                return "フシギバナ";
+            case 6:
+                return "リザードン";
+            case 9:
+                return "カメックス";
             case 144:
                 return "フリーザー";
             case 146:

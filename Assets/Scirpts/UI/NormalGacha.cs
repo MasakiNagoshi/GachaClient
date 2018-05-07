@@ -1,12 +1,15 @@
-﻿using UnityEngine;
+﻿//////////////////////////////////////////////////////
+//制作者　名越大樹
+//ノーマルガチャに関するクラス
+//////////////////////////////////////////////////////
+
+using UnityEngine;
 using HTTP;
 using Protocol;
 using UnityEngine.UI;
-using System;
 
 public class NormalGacha : GachaBase
 {
-    int limit = 10;
     const string GACHA_RATE = "normal";
 
     public override void AddUseCount(bool value)

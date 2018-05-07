@@ -1,6 +1,5 @@
 ﻿
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class EmmisionGachaIllustlation
@@ -12,39 +11,30 @@ public class EmmisionGachaIllustlation
     const string R_RATE = "r";
     const string SR_RATE = "sr";
     const string SSR_RATE = "ssr";
+    const string CHARACTER_ILLUST_FOLDER = "Image/CharacterIllust/";
+    const string MONSTERBALL_ILLUST_FOLDER = "Image/MonsterBall/";
+
+    public static EmmisionGachaIllustlation Instance { get { return instance; } }
+
     public EmmisionGachaIllustlation(string rate)
     {
         instance = this;
-
-        switch (rate)
-        {
-            case "normal":
-             //   illustArray = Resources.LoadAll<Sprite>("Image/CharacterIllust/NRateImage");
-             //   Debug.Log(illustArray[0]);
-                break;
-            case "specal":
-            //    Sprite[] r = Resources.LoadAll<Sprite>("Image/CharacterIllust/RRateImage");
-            //    Sprite[] sr = Resources.LoadAll<Sprite>("Image/CharacterIllust/SRRateImage");
-            //    Sprite[] ssr = Resources.LoadAll<Sprite>("Image/CharacterIllust/SSRRateImage");
-             //   illustList = new List<Sprite>(r.Length + sr.Length + ssr.Length);
-                break;
-        }
     }
 
     public Sprite ReadImage(string rate, string number)
     {
         switch (rate)
         {
-            case "n":
+            case N_RATE:
                 rate = "NRateImage";
                 break;
-            case "r":
+            case R_RATE:
                 rate = "RRateImage";
                 break;
-            case "sr":
+            case SR_RATE:
                 rate = "SRRateImage";
                 break;
-            case "ssr":
+            case SSR_RATE:
                 rate = "SSRRateImage";
                 break;
         }
@@ -56,26 +46,21 @@ public class EmmisionGachaIllustlation
         {
             number = "00" + number;
         }
-        return Resources.Load<Sprite>("Image/CharacterIllust/" + rate + "/" + number);
-
+        return Resources.Load<Sprite>(CHARACTER_ILLUST_FOLDER + rate + "/" + number);
     }
-
-    public static EmmisionGachaIllustlation Instance { get { return instance; } }
-
 
     public Sprite GetMonsterBallRateImage(string rate)
     {
         switch (rate)
         {
             case N_RATE:
-                Debug.Log(Resources.Load<Sprite>("Image/MonsterBall/N"));
-                return Resources.Load<Sprite>("Image/MonsterBall/N");
+                return Resources.Load<Sprite>(MONSTERBALL_ILLUST_FOLDER + "N");
             case R_RATE:
-                return Resources.Load<Sprite>("Image/MonsterBall/R");
+                return Resources.Load<Sprite>(MONSTERBALL_ILLUST_FOLDER + "R");
             case SR_RATE:
-                return Resources.Load<Sprite>("Image/MonsterBall/SR");
+                return Resources.Load<Sprite>(MONSTERBALL_ILLUST_FOLDER + "SR");
             case SSR_RATE:
-                return Resources.Load<Sprite>("Image/MonsterBall/SSR");
+                return Resources.Load<Sprite>(MONSTERBALL_ILLUST_FOLDER + "SSR");
         }
         return null;
     }

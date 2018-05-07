@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/////////////////////////////////////////////////
+//制作者　名越大樹
+//Spriteを管理するクラス
+/////////////////////////////////////////////////
+
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SpriteManager
 {
@@ -12,12 +14,13 @@ public class SpriteManager
     }
 
     static SpriteManager instance;
+    public static SpriteManager Instance { get { return instance; } }
+
     public SpriteManager(ReadStatus status)
     {
         instance = this;
         ReadData(status);
     }
-    public static SpriteManager Instance{ get { return instance; } }
     void ReadData(ReadStatus status)
     {
         switch(status)

@@ -11,7 +11,9 @@ public class GetEffectBase : MonoBehaviour
     int number;
     const string RATE_FILE = "Image/CharacterIllust/SSRRateImage/";
     const string CRY_FILE = "SE/Cry/";
-    public GetEffectBase(){}
+    const string GET_SE_FILE = "SE/Effect/get";
+
+    public GetEffectBase() { }
 
     public GetEffectBase(int dictionary)
     {
@@ -54,7 +56,7 @@ public class GetEffectBase : MonoBehaviour
         audio.Play();
     }
 
-    public virtual  void Ini()
+    public virtual void Ini()
     {
         GetEffectManager.Instace.ChangeCanvas();
     }
@@ -63,7 +65,7 @@ public class GetEffectBase : MonoBehaviour
     {
         Image get = GetEffectManager.Instace.GetImage;
         get.color = Color.white;
-        GetEffectManager.Instace.Audio.clip = Resources.Load<AudioClip>("SE/Effect/get");
+        GetEffectManager.Instace.Audio.clip = Resources.Load<AudioClip>(GET_SE_FILE);
         GetEffectManager.Instace.Audio.Play();
     }
 
@@ -79,12 +81,12 @@ public class GetEffectBase : MonoBehaviour
     /// <summary>
     /// 毎回更新される処理
     /// </summary>
-    public virtual void EffectUpdate(){}
+    public virtual void EffectUpdate() { }
 
 
     public virtual bool IsClick()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             return true;
         }

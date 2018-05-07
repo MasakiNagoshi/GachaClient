@@ -3,7 +3,6 @@
 //通信上での定数を管理するクラス
 /////////////////////////////////////////////
 
-
 public class NetWorkKey 
 {
     public const string URL = "http://150.95.179.163/Gacha/Ini.php";
@@ -35,4 +34,6 @@ public class NetWorkKey
     public const char EMMISION_CHARACTER_FONT = ':';
     public const string DUPLICATION = "1";
     public const char RESPONSE_FIRST_SPLIT = ',';
+    public const string NORMAL_TICKET_ID = "1";
+    public const string SPECAL_TICKET_ID = "2";
 }

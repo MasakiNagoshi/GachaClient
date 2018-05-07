@@ -31,9 +31,4 @@ public class TitleManager
             SceneManagers.SceneLoad( SceneManagers.SceneName.CreateUser);
         }
     }
-
-    void ResponseLogin(ResponseLogin response)
-    {
-        Debug.Log("e");
-    }
 }

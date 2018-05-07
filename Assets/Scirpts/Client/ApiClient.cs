@@ -175,7 +175,7 @@ namespace HTTP
         {
             foreach (EmmisionCharacter character in response.emmisionCharacterList)
             {
-                GachaRate rate = new GachaRate(character.rate, character.dictionary_number, character.duplication);
+                GachaRateInstance.Instance.GachaRate(character.rate, character.dictionary_number, character.duplication);
             }
             Canvas canvas = CanvasManager.Canvas.GetComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceCamera;

@@ -11,18 +11,20 @@ public class Confirmation : MonoBehaviour
     Text rateText;
     Text messageText;
     Button okButton;
+    const string OK_BUTTON_OBJ = "OkButton";
+
     void Start()
     {
         GameObject text = GameObject.Find(ObjectName.MESSAGE_TEXT);
         GameObject rate = GameObject.Find(ObjectName.RATE_TEXT);
-        okButton = GameObject.Find("OkButton").GetComponent<Button>();
+        okButton = GameObject.Find(OK_BUTTON_OBJ).GetComponent<Button>();
         rateText = rate.GetComponent<Text>();
         messageText = text.GetComponent<Text>();
     }
 
     public void OkButton()
     {
-        bool result =ErrorCheck.Instance.CheckUseCount(AttachRate.AttachGachaRate.GetUseCount());
+        bool result = ErrorCheck.Instance.CheckUseCount(AttachRate.AttachGachaRate.GetUseCount());
         if (result)
         {
             SceneManagers.SceneLoad(SceneManagers.SceneName.EmmisionGacha);
@@ -45,7 +47,13 @@ public class Confirmation : MonoBehaviour
         {
             AttachRate.AttachGachaRate.SetUseCount(ticket);
         }
-        if(ticket == 0)
+        OkButtonColorChange(ticket);
+        UpdateUseMessage();
+    }
+
+    void OkButtonColorChange(int ticket)
+    {
+        if (ticket == 0)
         {
             okButton.enabled = false;
             okButton.GetComponent<Image>().color = Color.gray;
@@ -54,9 +62,7 @@ public class Confirmation : MonoBehaviour
         {
             okButton.enabled = true;
             okButton.GetComponent<Image>().color = Color.white;
-
         }
-        UpdateUseMessage();
     }
 
     public void AddCount()

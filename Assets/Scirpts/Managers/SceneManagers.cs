@@ -5,12 +5,15 @@
 
 public class SceneManagers
 {
+    static SceneName scene;
     const string TITLE_SCENE = "Title";
     const string GACHA_SCENE = "Gacha";
     const string CREATE_USER_SCENE = "CreateUser";
     const string LOGIN_PRESENT_SCENE = "LoginPresent";
     const string EMMISION_GACHA_SCENE = "EmmisionGacha";
     const string DICTIONARY_SCENE = "Dictionary";
+
+    public static SceneName Scene { get { return scene; } }
 
     public enum SceneName
     {
@@ -24,6 +27,7 @@ public class SceneManagers
 
     public static void SceneLoad(SceneName name)
     {
+        scene = name;
         switch (name)
         {
             case SceneName.Title:

@@ -1,6 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿/////////////////////////////////////////
+//制作者　名越大樹
+//キャラクター図鑑を補正するクラス
+/////////////////////////////////////////
 
 public class NumberCorrection
 {
