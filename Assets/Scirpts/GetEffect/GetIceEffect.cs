@@ -27,6 +27,7 @@ public class GetIceEffect : GetEffectBase
         Delete,
     }
     ActionList action = ActionList.Ini;
+
     public GetIceEffect(int dictionary)
     {
         number = dictionary;
@@ -50,7 +51,7 @@ public class GetIceEffect : GetEffectBase
         Vector3 pos = Camera.main.transform.position;
         pos.y += 5;
         pos.z = 0;
-        GameObject instance = Instantiate(effet,pos, Quaternion.identity);
+        GameObject instance = Instantiate(effet, pos, Quaternion.identity);
         GetEffectManager.Instace.Audio.clip = Resources.Load<AudioClip>(FIRE_START_SE);
         GetEffectManager.Instace.Audio.Play();
         Destroy(instance, 10);
@@ -102,7 +103,7 @@ public class GetIceEffect : GetEffectBase
         bool result = base.IsClick();
         if (result)
         {
-           Finish();
+            Finish();
         }
         if (action == ActionList.Finish)
         {

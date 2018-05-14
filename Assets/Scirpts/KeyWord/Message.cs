@@ -1,6 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿///////////////////////////////////////
+//制作者　名越大樹
+//メッセージのパラメーターを管理するクラス
+///////////////////////////////////////
 
 public class Message
 {

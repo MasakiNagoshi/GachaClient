@@ -15,6 +15,6 @@ public class SSRRate : GachaRate
 
     public override Button Instance(string rate, Button instanceobj, GameObject parent, bool duplication, string dictionary)
     {
-        return base.Instance(rate,instanceobj, parent, duplication, dictionary);
+        return base.Instance(rate, instanceobj, parent, duplication, dictionary);
     }
 }

@@ -9,16 +9,23 @@ public class CanvasManager
 {
     static GameObject canvas;
     const string CANVAS_NAME = "Canvas";
+
     public CanvasManager()
     {
         canvas = GameObject.Find(CANVAS_NAME);
     }
-    public static GameObject Canvas { get {
+    public static GameObject Canvas
+    {
+        get
+        {
             if (canvas == null)
             {
                 Find();
             }
-            return canvas; } set { canvas = value; } }
+            return canvas;
+        }
+        set { canvas = value; }
+    }
 
     static void Find()
     {

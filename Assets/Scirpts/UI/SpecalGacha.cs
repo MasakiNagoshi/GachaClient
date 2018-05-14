@@ -14,7 +14,7 @@ public class SpecalGacha : GachaBase
 
     public override int GetMaxUseCount()
     {
-      return  SpecalTicket.Instance.GetMaxUseCount();
+        return SpecalTicket.Instance.GetMaxUseCount();
     }
 
     public override string GetRate()

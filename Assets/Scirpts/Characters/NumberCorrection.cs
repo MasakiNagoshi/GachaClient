@@ -25,12 +25,12 @@ public class NumberCorrection
 
     public string Correction(int number)
     {
-        if(number > 10 && number < 100)
+        if (number > 10 && number < 100)
         {
             return "0" + number.ToString();
         }
 
-        else if(number < 10)
+        else if (number < 10)
         {
             return "00" + number.ToString();
         }

@@ -10,9 +10,9 @@ public class NRate : GachaRate
 {
     Button character;
 
-    public override Button Instance(string rate,Button instanceobj, GameObject parent, bool duplication, string dictionary)
+    public override Button Instance(string rate, Button instanceobj, GameObject parent, bool duplication, string dictionary)
     {
-        character =  base.Instance(rate,instanceobj, parent, duplication, dictionary);
+        character = base.Instance(rate, instanceobj, parent, duplication, dictionary);
         return null;
     }
 

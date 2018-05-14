@@ -3,7 +3,7 @@
 //通信上での定数を管理するクラス
 /////////////////////////////////////////////
 
-public class NetWorkKey 
+public class NetWorkKey
 {
     public const string URL = "http://150.95.179.163/Gacha/Ini.php";
     public const string USER_ID = "id";

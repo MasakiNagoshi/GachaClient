@@ -12,9 +12,6 @@ public class SceneManagers
     const string LOGIN_PRESENT_SCENE = "LoginPresent";
     const string EMMISION_GACHA_SCENE = "EmmisionGacha";
     const string DICTIONARY_SCENE = "Dictionary";
-
-    public static SceneName Scene { get { return scene; } }
-
     public enum SceneName
     {
         Title,
@@ -24,6 +21,10 @@ public class SceneManagers
         LoginPresent,
         EmmisionGacha,
     }
+
+    public static SceneName Scene { get { return scene; } }
+
+
 
     public static void SceneLoad(SceneName name)
     {

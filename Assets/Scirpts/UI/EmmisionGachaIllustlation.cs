@@ -38,11 +38,11 @@ public class EmmisionGachaIllustlation
                 rate = "SSRRateImage";
                 break;
         }
-        if(int.Parse(number) >= 10 && int.Parse(number) < 100)
+        if (int.Parse(number) >= 10 && int.Parse(number) < 100)
         {
             number = "0" + number;
         }
-        else if(int.Parse(number) <= 10)
+        else if (int.Parse(number) <= 10)
         {
             number = "00" + number;
         }

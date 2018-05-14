@@ -43,7 +43,7 @@ public class GetEsperEffect : GetEffectBase
         IniTimer();
         int number = GetNumber();
         GameObject effet = Resources.Load<GameObject>(EFFECT_ESPER_START);
-        GameObject instance = Instantiate(effet,Vector3.zero, Quaternion.identity);
+        GameObject instance = Instantiate(effet, Vector3.zero, Quaternion.identity);
         GetEffectManager.Instace.Audio.clip = Resources.Load<AudioClip>(ESPER_START_SE);
         GetEffectManager.Instace.Audio.Play();
         Destroy(instance, 10);

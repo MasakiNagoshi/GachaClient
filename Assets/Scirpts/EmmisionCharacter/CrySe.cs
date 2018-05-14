@@ -10,6 +10,7 @@ public class CrySe
     static CrySe instance;
     AudioSource audio;
     GameObject obj;
+    const string CRY_SE_OBJ = "CrySe";
 
     public static CrySe Instance
     {
@@ -26,7 +27,7 @@ public class CrySe
     public CrySe()
     {
         instance = this;
-        obj = new GameObject("CrySe");
+        obj = new GameObject(CRY_SE_OBJ);
         audio = obj.AddComponent<AudioSource>();
     }
 

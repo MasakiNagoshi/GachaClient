@@ -13,16 +13,16 @@ public class OKButton : MonoBehaviour
     Text inputName;
     const string INPUT_NAME_OBJ = "InputName";
 
-    void Start ()
+    void Start()
     {
         GameObject text = GameObject.Find(INPUT_NAME_OBJ);
         inputName = text.GetComponent<Text>();
-	}
+    }
 
     public void OK()
     {
         bool result = ErrorCheck.InputName(name);
-        if(result)
+        if (result)
         {
             CreateUser();
         }

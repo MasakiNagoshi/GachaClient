@@ -53,8 +53,8 @@ public class NormalTicket : TicketBase
         {
             addusecount = -1;
         }
-        bool result = ErrorCheck.Instance.CheckAddUseCount(useCount + addusecount,count);
-        if(result)
+        bool result = ErrorCheck.Instance.CheckAddUseCount(useCount + addusecount, count);
+        if (result)
         {
             useCount += addusecount;
         }

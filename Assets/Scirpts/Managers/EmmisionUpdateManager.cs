@@ -6,6 +6,7 @@
 public class EmmisionUpdateManager
 {
     static EmmisionUpdateManager instance;
+
     public static EmmisionUpdateManager Instance { get { return instance; } }
 
     public EmmisionUpdateManager()
@@ -15,8 +16,8 @@ public class EmmisionUpdateManager
 
     public void Update()
     {
-         ScaleAniamtion();
-         GetEffectUpdate();
+        ScaleAniamtion();
+        GetEffectUpdate();
     }
 
     void GetEffectUpdate()
@@ -29,6 +30,6 @@ public class EmmisionUpdateManager
 
     void ScaleAniamtion()
     {
-       ScaleAnimationManager.Instance.AnimationUpdate();
+        ScaleAnimationManager.Instance.AnimationUpdate();
     }
 }

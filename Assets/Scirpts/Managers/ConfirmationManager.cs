@@ -9,7 +9,8 @@ public class ConfirmationManager
 {
     Confirmation confirmation;
     static ConfirmationManager manager;
-    public static ConfirmationManager Instance{ get{ return manager; }}
+
+    public static ConfirmationManager Instance { get { return manager; } }
 
     public ConfirmationManager()
     {

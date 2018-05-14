@@ -1,16 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
+
 using UnityEngine;
 
-public class UpdateAnimationManager : MonoBehaviour
+public class ErrorUpdateAnimationManager : MonoBehaviour
 {
-    static UpdateAnimationManager instance;
-    public static UpdateAnimationManager Instance
+    static ErrorUpdateAnimationManager instance;
+
+    public static ErrorUpdateAnimationManager Instance
     {
         get
         {
-                var manager = new GameObject("UpdateAnimationObj");
-                instance = manager.AddComponent<UpdateAnimationManager>();
+            var manager = new GameObject("UpdateAnimationObj");
+            instance = manager.AddComponent<ErrorUpdateAnimationManager>();
             return instance;
         }
     }

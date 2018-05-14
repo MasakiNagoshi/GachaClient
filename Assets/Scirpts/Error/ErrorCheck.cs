@@ -26,7 +26,7 @@ public class ErrorCheck
             return instance;
         }
     }
-	
+
     public static bool InputName(string name)
     {
         Debug.Log(name.Length);
@@ -55,7 +55,7 @@ public class ErrorCheck
 
     public bool CheckUseCount(int usecount)
     {
-        if(usecount == 0)
+        if (usecount == 0)
         {
             return false;
         }
@@ -73,8 +73,8 @@ public class ErrorCheck
         {
             message = "サーバーのメンテナンス中ですしばらくお待ちください";
         }
-                ErrorUI ui = new ErrorUI(message);
-                errorUI = ui;
+        ErrorUI ui = new ErrorUI(message);
+        errorUI = ui;
     }
 
 }

@@ -13,13 +13,13 @@ public class GachaMaster : MonoBehaviour
     [SerializeField]
     Button rateButton;
 
-	void Start ()
+    void Start()
     {
         GachaManager manager = new GachaManager(rateButton);
         TiketManager ticket = new TiketManager();
         ConfirmationManager confirmation = new ConfirmationManager();
         IniRequest();
-	}
+    }
 
     void IniRequest()
     {

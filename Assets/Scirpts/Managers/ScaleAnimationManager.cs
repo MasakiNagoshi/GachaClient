@@ -13,13 +13,17 @@ public class ScaleAnimationManager
     bool isUpdateAnimation = true;
 
     public bool IsUpdateAnimation { get { return IsUpdateAnimation; } set { IsUpdateAnimation = value; } }
-    public static ScaleAnimationManager Instance {
-        get {
+    public static ScaleAnimationManager Instance
+    {
+        get
+        {
             if (manager == null)
             {
                 ScaleAnimationManager instance = new ScaleAnimationManager();
             }
-            return manager; } }
+            return manager;
+        }
+    }
 
     public ScaleAnimationManager()
     {
@@ -27,9 +31,9 @@ public class ScaleAnimationManager
         scaleAnimationList = new List<ScaleAnimation>();
     }
 
-    public void CreateScaleAnimation(GameObject target,GachaRate rate)
+    public void CreateScaleAnimation(GameObject target, GachaRate rate)
     {
-        ScaleAnimation scale = new ScaleAnimation(target,rate);
+        ScaleAnimation scale = new ScaleAnimation(target, rate);
         scaleAnimationList.Add(scale);
     }
 
@@ -50,13 +54,12 @@ public class ScaleAnimationManager
     /// </summary>
     public void AnimationUpdate()
     {
-        if(isUpdateAnimation)
+        if (isUpdateAnimation)
         {
-            foreach(ScaleAnimation scaleanimation in scaleAnimationList)
+            foreach (ScaleAnimation scaleanimation in scaleAnimationList)
             {
                 scaleanimation.AnimationUpdate();
             }
         }
     }
-
 }

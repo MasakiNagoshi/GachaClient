@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class EmmisionCharacterRateManager
 {
     static Button rateObj;
+
     public static Button RateObj { get { return rateObj; } }
 
     public EmmisionCharacterRateManager(Button rate)

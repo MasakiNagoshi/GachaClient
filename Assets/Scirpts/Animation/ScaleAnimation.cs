@@ -30,7 +30,7 @@ public class ScaleAnimation
         isAnimation = true;
     }
 
-    public ScaleAnimation(GameObject target,float speed)
+    public ScaleAnimation(GameObject target, float speed)
     {
         defalutScale = target.transform.localScale;
         target.transform.localScale = Vector3.zero;
@@ -44,7 +44,7 @@ public class ScaleAnimation
     /// </summary>
     public void AnimationUpdate()
     {
-        if(!isAnimation)
+        if (!isAnimation)
         {
             return;
         }

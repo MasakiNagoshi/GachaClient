@@ -8,6 +8,7 @@ using UnityEngine;
 public class EmmisionGachaManager
 {
     static GameObject emmisonCharacteresParent;
+
     public static GameObject EmmisonCharacteresParent { get { return emmisonCharacteresParent; } }
 
     public EmmisionGachaManager()

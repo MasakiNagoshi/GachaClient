@@ -6,7 +6,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public  class GachaRate : MonoBehaviour
+public class GachaRate : MonoBehaviour
 {
     const string N_RATE = "n";
     const string R_RATE = "r";
@@ -16,7 +16,7 @@ public  class GachaRate : MonoBehaviour
 
     public GachaRate() { }
 
-    public virtual void EffectAction(){}
+    public virtual void EffectAction() { }
 
     public virtual Button GetButtonObj()
     {
@@ -43,8 +43,8 @@ public  class GachaRate : MonoBehaviour
                 CrySe.Instance.ChangeSe(Resources.Load<AudioClip>("SE/Cry/" + dictionary));
                 CrySe.Instance.PlaySe();
             }
-            ChangeSprite(rate,duplication,int.Parse(dictionary),obj);
-            if(!duplication)
+            ChangeSprite(rate, duplication, int.Parse(dictionary), obj);
+            if (!duplication)
             {
                 if (int.Parse(dictionary) == 144)
                 {
@@ -53,20 +53,20 @@ public  class GachaRate : MonoBehaviour
             }
         });
         obj.GetComponent<Image>().sprite = EmmisionGachaIllustlation.Instance.GetMonsterBallRateImage(rate);
-        SkipButton.Instance.AddSkip(rate, duplication, int.Parse(dictionary), obj,this);
+        SkipButton.Instance.AddSkip(rate, duplication, int.Parse(dictionary), obj, this);
         ScaleAnimationManager.Instance.CreateScaleAnimation(obj.gameObject, this);
         buttonObj = obj;
         return obj;
     }
 
     /// <summary>
-    /// 
+    /// 画像を切り替える処理
     /// </summary>
     /// <param name="rate"></param>
     /// <param name="duplication"></param>
     /// <param name="number"></param>
     /// <param name="rateobj"></param>
-    public virtual void ChangeSprite(string rate,bool duplication,int number,Button rateobj)
+    public virtual void ChangeSprite(string rate, bool duplication, int number, Button rateobj)
     {
         if (rateobj != null)
         {
@@ -74,7 +74,7 @@ public  class GachaRate : MonoBehaviour
             rateobj.GetComponent<Image>().sprite = image;
             if (!duplication)
             {
-                if(rate == SSR_RATE)
+                if (rate == SSR_RATE)
                 {
                     GetEffectManager.Instace.PlayEffect(number);
                 }

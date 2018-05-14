@@ -11,7 +11,7 @@ public class SkipButton
     static SkipButton instance;
     public static SkipButton Instance { get { return instance; } }
     Button buttonobj;
-    const string SKIP_OBJ = "SkipButton"; 
+    const string SKIP_OBJ = "SkipButton";
 
     public SkipButton()
     {
@@ -26,11 +26,11 @@ public class SkipButton
     /// <param name="number"></param>
     /// <param name="targetobj"></param>
     /// <param name="add"></param>
-    public void AddSkip(string rate,bool duplication, int number,Button targetobj,GachaRate add)
+    public void AddSkip(string rate, bool duplication, int number, Button targetobj, GachaRate add)
     {
-        buttonobj.onClick.AddListener(() => 
+        buttonobj.onClick.AddListener(() =>
         {
-            add.ChangeSprite(rate,duplication,number,targetobj);
+            add.ChangeSprite(rate, duplication, number, targetobj);
         }
         );
     }

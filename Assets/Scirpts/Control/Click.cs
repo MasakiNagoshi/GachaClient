@@ -10,7 +10,8 @@ public class Click : MonoBehaviour
     static Click instance;
     static AudioSource audio;
     MonoBehaviour mono;
-    
+    const string CLICK_SE_FILE = "SE/Click/ClickSe";
+    const string CLICK_SE_OBJ = "ClickSE";
     public static Click Instance
     {
         get
@@ -26,11 +27,11 @@ public class Click : MonoBehaviour
     public Click()
     {
         instance = this;
-        var obj = new GameObject("ClickSE");
+        var obj = new GameObject(CLICK_SE_OBJ);
         obj.AddComponent<AudioSource>();
         DontDestroyOnLoad(obj);
         audio = obj.GetComponent<AudioSource>();
-        audio.clip = Resources.Load<AudioClip>("SE/Click/ClickSe");
+        audio.clip = Resources.Load<AudioClip>(CLICK_SE_FILE);
     }
 
     public void PlaySe()

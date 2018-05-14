@@ -19,7 +19,7 @@ public class TitleManager
 
     void UserCheck()
     {
-        if(PlayerPrefs.HasKey(NetWorkKey.USER_ID))
+        if (PlayerPrefs.HasKey(NetWorkKey.USER_ID))
         {
             RequestLogin param = new RequestLogin();
             param.user_ip = PlayerPrefs.GetString(NetWorkKey.USER_ID);
@@ -28,7 +28,7 @@ public class TitleManager
 
         else
         {
-            SceneManagers.SceneLoad( SceneManagers.SceneName.CreateUser);
+            SceneManagers.SceneLoad(SceneManagers.SceneName.CreateUser);
         }
     }
 }

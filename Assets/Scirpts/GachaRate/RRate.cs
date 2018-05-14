@@ -6,7 +6,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public  class RRate : GachaRate
+public class RRate : GachaRate
 {
     int number;
     Button character;
@@ -14,7 +14,7 @@ public  class RRate : GachaRate
     public override Button Instance(string rate, Button instanceobj, GameObject parent, bool duplication, string dictionary)
     {
         character = base.Instance(rate, instanceobj, parent, duplication, dictionary);
-       return null;
+        return null;
     }
 
     public override void ChangeSprite(string rate, bool duplication, int number, Button rateobj)

@@ -23,11 +23,11 @@ public class DictionaryLibrary : MonoBehaviour
     public static DictionaryLibrary instance;
     public List<Button> instanceobjList = new List<Button>();
 
-    void Start ()
+    void Start()
     {
         instance = this;
         AllGetNumbers();
-	}
+    }
 
     IEnumerator InstanceLibrary(List<int> getnumbers)
     {
@@ -57,7 +57,7 @@ public class DictionaryLibrary : MonoBehaviour
         foreach (int index in getnumbers)
         {
             Image image = instanceobjList[index - 1].GetComponent<Image>();
-            instanceobjList[index - 1].onClick.AddListener(() => 
+            instanceobjList[index - 1].onClick.AddListener(() =>
             {
                 SetCrySE(index);
             });
@@ -67,10 +67,10 @@ public class DictionaryLibrary : MonoBehaviour
         yield return null;
     }
 
-    public void  SetCrySE(int index)
+    public void SetCrySE(int index)
     {
         AudioSource source = instanceobjList[index - 1].GetComponent<AudioSource>();
-        source.clip = Resources.Load<AudioClip>( SE_FOLDER + index.ToString());
+        source.clip = Resources.Load<AudioClip>(SE_FOLDER + index.ToString());
         source.Play();
     }
 

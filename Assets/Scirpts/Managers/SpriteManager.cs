@@ -23,7 +23,7 @@ public class SpriteManager
     }
     void ReadData(ReadStatus status)
     {
-        switch(status)
+        switch (status)
         {
             case ReadStatus.Tickets:
                 sprites = Resources.LoadAll<Sprite>("Image/Ticket");

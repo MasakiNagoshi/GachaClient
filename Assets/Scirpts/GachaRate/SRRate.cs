@@ -14,7 +14,7 @@ public class SRRate : GachaRate
     public override Button Instance(string rate, Button instanceobj, GameObject parent, bool duplication, string dictionary)
     {
         number = int.Parse(dictionary);
-        character = base.Instance(rate,instanceobj, parent, duplication, dictionary);
+        character = base.Instance(rate, instanceobj, parent, duplication, dictionary);
         return null;
     }
 
@@ -26,14 +26,5 @@ public class SRRate : GachaRate
     public override void ChangeSprite(string rate, bool duplication, int number, Button rateobj)
     {
         base.ChangeSprite(rate, duplication, number, rateobj);
-    }
-
-    public override void EffectAction()
-    {
-        GameObject effect = Resources.Load<GameObject>("Effect/Test");
-        var instance = Instantiate(effect);
-        var obj = GetButtonObj();
-        instance.transform.parent = obj.gameObject.transform;
-        instance.transform.position = obj.gameObject.transform.position;
     }
 }

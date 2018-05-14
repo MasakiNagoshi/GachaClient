@@ -15,7 +15,7 @@ public class IniEmmisionCharacter
     {
         GameObject obj = new GameObject(DUPLICATION_OBJ);
         obj.transform.parent = parent.transform;
-        obj.transform.localScale = new Vector3(1,1,1);
+        obj.transform.localScale = new Vector3(1, 1, 1);
         obj.AddComponent<Image>().sprite = Resources.Load<Sprite>(NEW_IMAGE_FILE);
         obj.transform.position = parent.transform.position;
     }
