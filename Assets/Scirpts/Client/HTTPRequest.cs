@@ -45,7 +45,16 @@ namespace Request
         void ResponsePost(string response)
         {
             string[] splitdata = response.Split(NetWorkKey.RESPONSE_FIRST_SPLIT);
-            switch (splitdata[0])
+            string check = splitdata[0];
+            if(check.Length > 1)
+            {
+                if(check[0] != ' ')
+                {
+                   check = check.Remove(0,1);
+                }
+            }
+            Debug.Log(check.Length);
+            switch (check)
             {
                 case NetWorkKey.RESPONSE_CREATE_USER:
                     ResponseCreateUser(splitdata);
@@ -62,7 +71,27 @@ namespace Request
                 case NetWorkKey.RESPONSE_GET_LOGIN:
                     ResponseGetLogin(splitdata);
                     break;
+                case "8":
+                    ResponseGetAllStones(splitdata);
+                    break;
             }
+        }
+
+
+        void ResponseGetAllStones(string[] data)
+        {
+            List<string> sortdata = new List<string>(data);
+            sortdata.RemoveAt(0);
+            ResponseGetAllStones response = new ResponseGetAllStones();
+            for (int count = 0; count < sortdata.Count; count++)
+            {
+                string[] sortSpritData = sortdata[count].Split(':');
+                Stone stone = new Stone();
+                stone.type = sortSpritData[0];
+                stone.count = int.Parse(sortSpritData[1]);
+                response.stones_list.Add(stone);
+            }
+            ApiClient.Instance.ResponseGetAllStone(response);
         }
 
         void ResponseGetLogin(string[] data)

@@ -163,7 +163,6 @@ namespace HTTP
             data.Add(NetWorkKey.REQUEST_STATUS, NetWorkKey.GACHA);
             data.Add(NetWorkKey.USE_NORMAL, param.used_noraml_ticket);
             data.Add(NetWorkKey.USE_SPECAL, param.used_specal_ticket);
-            Debug.Log(param.status);
             StartCoroutine(requester.RequestPost(ip, data));
         }
 
@@ -180,6 +179,42 @@ namespace HTTP
             Canvas canvas = CanvasManager.Canvas.GetComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceCamera;
             GetEffectManager manager = new GetEffectManager();
+        }
+
+        /// <summary>
+        /// すべての石の情報を取得するリクエスト処理
+        /// </summary>
+        /// <param name="param"></param>
+        public void RequestGetAllStones(RequestGetAllStones param)
+        {
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            data.Add(NetWorkKey.USER_ID, param.user_id);
+            data.Add(NetWorkKey.GET_REQUEST, "stones");
+            data.Add(NetWorkKey.STATUS, "1");
+            res += ResposeGetAllStones;
+            StartCoroutine(requester.RequestPost(ip, data));
+        }
+
+        public delegate void DelegateResponseGetAllStone(ResponseGetAllStones response);
+        public event DelegateResponseGetAllStone res;
+
+        public void ResponseGetAllStone(ResponseGetAllStones response)
+        {
+            res(response);
+        }
+
+        /// <summary>
+        /// 全石の情報を取得したレスポンス処理
+        /// </summary>
+        /// <param name="response"></param>
+        void ResposeGetAllStones(ResponseGetAllStones response)
+        {
+            foreach (Stone stone in response.stones_list)
+            {
+                StoneItemParamater param = new StoneItemParamater(stone.count, stone.type);
+                StoneManager.Instance.StoneList.Add(param);
+            }
+            StoneManager.Instance.Instantiate();
         }
     }
 }

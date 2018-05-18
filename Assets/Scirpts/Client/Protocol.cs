@@ -16,6 +16,22 @@ namespace Protocol
         public string user_name;
     }
 
+    public class RequestGetAllStones
+    {
+        public string user_id;
+    }
+
+    public class ResponseGetAllStones
+    {
+        public List<Stone> stones_list = new List<Stone>();
+    }
+
+    public class Stone
+    {
+        public string type;
+        public int count;
+    }
+
     public class RequestGetGachaTicket
     {
         public string user_id;

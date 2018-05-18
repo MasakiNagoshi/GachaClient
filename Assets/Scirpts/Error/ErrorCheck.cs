@@ -65,7 +65,7 @@ public class ErrorCheck
     public void HTTPError(string error)
     {
         string message = "";
-        if (error == "Failed to connect to 150.95.179.163 port 80: Host unreachable")
+        if (error == "Failed to connect to 150.95.179.163 port 0: Host unreachable")
         {
             message = "ネットがつながっていませんネット状況を確認してください";
         }

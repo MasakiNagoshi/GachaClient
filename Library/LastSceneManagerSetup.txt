@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Dictionary.unity
+- path: Assets/Scenes/Stone.unity
   isLoaded: 1
   isActive: 1

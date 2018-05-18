@@ -9,9 +9,9 @@ public class TitleMaster : MonoBehaviour
 {
     public static TitleMaster master;
 
-	void Start ()
+    void Start()
     {
         master = this;
         TitleManager manager = new TitleManager();
-	}
+    }
 }
