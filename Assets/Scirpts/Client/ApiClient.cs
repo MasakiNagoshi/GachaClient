@@ -191,7 +191,7 @@ namespace HTTP
             data.Add(NetWorkKey.USER_ID, param.user_id);
             data.Add(NetWorkKey.GET_REQUEST, "stones");
             data.Add(NetWorkKey.STATUS, "1");
-            res += ResposeGetAllStones;
+            res = ResposeGetAllStones;
             StartCoroutine(requester.RequestPost(ip, data));
         }
 

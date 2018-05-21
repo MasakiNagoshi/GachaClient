@@ -1,6 +1,6 @@
 ﻿/////////////////////////////////////////////
 //制作者　名越大樹
-//EmmisionGachaシーンでの行進を管理するクラス
+//EmmisionGachaシーンでの更新を管理するクラス
 /////////////////////////////////////////////
 
 public class EmmisionUpdateManager
@@ -8,7 +8,7 @@ public class EmmisionUpdateManager
     static EmmisionUpdateManager instance;
 
     public static EmmisionUpdateManager Instance { get { return instance; } }
-
+   
     public EmmisionUpdateManager()
     {
         instance = this;
@@ -18,6 +18,7 @@ public class EmmisionUpdateManager
     {
         ScaleAniamtion();
         GetEffectUpdate();
+        ChangeAnimation();
     }
 
     void GetEffectUpdate()
@@ -31,5 +32,10 @@ public class EmmisionUpdateManager
     void ScaleAniamtion()
     {
         ScaleAnimationManager.Instance.AnimationUpdate();
+    }
+
+    void ChangeAnimation()
+    {
+        ChangeAnimationManager.Instance.Update();
     }
 }

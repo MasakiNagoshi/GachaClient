@@ -12,6 +12,7 @@ public class GachaRate : MonoBehaviour
     const string R_RATE = "r";
     const string SR_RATE = "sr";
     const string SSR_RATE = "ssr";
+    const string FOLDER_NAME = "SE/Cry/";
     Button buttonObj;
 
     public GachaRate() { }
@@ -40,7 +41,7 @@ public class GachaRate : MonoBehaviour
         {
             if (rate != SSR_RATE)
             {
-                CrySe.Instance.ChangeSe(Resources.Load<AudioClip>("SE/Cry/" + dictionary));
+                CrySe.Instance.ChangeSe(Resources.Load<AudioClip>(FOLDER_NAME + dictionary));
                 CrySe.Instance.PlaySe();
             }
             ChangeSprite(rate, duplication, int.Parse(dictionary), obj);
@@ -80,7 +81,23 @@ public class GachaRate : MonoBehaviour
                 }
                 IniEmmisionCharacter dup = new IniEmmisionCharacter(rateobj.gameObject);
             }
+            else
+            {
+                ChangeMasterStoneImage(rate,rateobj);
+            }
             rateobj.enabled = false;
         }
     }
+
+    void ChangeMasterStoneImage(string rate,Button rateobj)
+    {
+
+        ChangeDuplicationEmmisionCharacter duplication = new ChangeDuplicationEmmisionCharacter(3.0f,rateobj.GetComponent<Image>(),rate);
+        switch (rate)
+        {
+            case R_RATE:
+                break;
+        }
+    }
+
 }

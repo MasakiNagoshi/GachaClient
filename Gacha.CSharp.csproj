@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scirpts\Client\HTTPRequest.cs" />
     <Compile Include="Assets\Scirpts\Client\Protocol.cs" />
     <Compile Include="Assets\Scirpts\Client\Test.cs" />
+    <Compile Include="Assets\Scirpts\Common\UpdateStoneMessage.cs" />
     <Compile Include="Assets\Scirpts\Control\Click.cs" />
     <Compile Include="Assets\Scirpts\Control\GachaClick.cs" />
     <Compile Include="Assets\Scirpts\Effect\EmmisionGachaEffect.cs" />
@@ -108,7 +109,9 @@
     <Compile Include="Assets\Scirpts\KeyWord\NetWorkKey.cs" />
     <Compile Include="Assets\Scirpts\KeyWord\ObjectName.cs" />
     <Compile Include="Assets\Scirpts\Managers\CanvasManager.cs" />
+    <Compile Include="Assets\Scirpts\Managers\ChangeAnimationManager.cs" />
     <Compile Include="Assets\Scirpts\Managers\ConfirmationManager.cs" />
+    <Compile Include="Assets\Scirpts\Managers\ConfirmationStoneManager.cs" />
     <Compile Include="Assets\Scirpts\Managers\EmmisionGachaManager.cs" />
     <Compile Include="Assets\Scirpts\Managers\EmmisionUpdateManager.cs" />
     <Compile Include="Assets\Scirpts\Managers\GetEffectManager.cs" />
@@ -116,6 +119,7 @@
     <Compile Include="Assets\Scirpts\Managers\RateManager.cs" />
     <Compile Include="Assets\Scirpts\Managers\ScaleAnimationManager.cs" />
     <Compile Include="Assets\Scirpts\Managers\SceneManagers.cs" />
+    <Compile Include="Assets\Scirpts\Managers\ScrollViewManager.cs" />
     <Compile Include="Assets\Scirpts\Managers\SpriteManager.cs" />
     <Compile Include="Assets\Scirpts\Managers\StoneManager.cs" />
     <Compile Include="Assets\Scirpts\Managers\TiketManager.cs" />
@@ -134,7 +138,10 @@
     <Compile Include="Assets\Scirpts\Stone\Type.cs" />
     <Compile Include="Assets\Scirpts\UI\AttachRate.cs" />
     <Compile Include="Assets\Scirpts\UI\Button\SkipButton.cs" />
+    <Compile Include="Assets\Scirpts\UI\ChangeAnimation.cs" />
+    <Compile Include="Assets\Scirpts\UI\ChangeDuplicationEmmisionCharacter.cs" />
     <Compile Include="Assets\Scirpts\UI\Confirmation.cs" />
+    <Compile Include="Assets\Scirpts\UI\ConfirmationStoneParamater.cs" />
     <Compile Include="Assets\Scirpts\UI\DictionaryLibrary.cs" />
     <Compile Include="Assets\Scirpts\UI\Duplication.cs" />
     <Compile Include="Assets\Scirpts\UI\EmmisionGachaIllustlation.cs" />
@@ -147,6 +154,7 @@
     <Compile Include="Assets\Scirpts\UI\NormalGacha.cs" />
     <Compile Include="Assets\Scirpts\UI\NormalTicket.cs" />
     <Compile Include="Assets\Scirpts\UI\OKButton.cs" />
+    <Compile Include="Assets\Scirpts\UI\ShoppingButton.cs" />
     <Compile Include="Assets\Scirpts\UI\SpecalGacha.cs" />
     <Compile Include="Assets\Scirpts\UI\SpecalTicket.cs" />
     <Compile Include="Assets\Scirpts\UI\TicketBase.cs" />

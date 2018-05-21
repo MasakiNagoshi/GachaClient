@@ -21,7 +21,7 @@ public class Testtt : MonoBehaviour {
 
         else if(Input.GetKeyDown(KeyCode.A))
         {
-            Debug.Log(Resources.Load<Sprite>("Image/Type/mark_1"));
+           Debug.Log(PlayerPrefs.GetString(NetWorkKey.USER_ID));
         }
 	}
 }

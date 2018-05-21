@@ -1,34 +1,37 @@
-﻿using System.Collections.Generic;
+﻿//////////////////////////////////////////////////
+//制作者　名越大樹
+//石のを管理するクラス
+//////////////////////////////////////////////////
+
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Protocol;
 using HTTP;
 
-public class StoneManager : MonoBehaviour
+public class StoneManager
 {
+    const string FILE_NAME = "UI/Mark";
+    const string MASTER_TYPE = "master";
     static StoneManager instance;
-    List<StoneItemParamater> stoneList;
-
-    public List<StoneItemParamater> StoneList { get { return stoneList; } set { stoneList = value; } }
+    static List<StoneItemParamater> stoneList = new List<StoneItemParamater>();
+    StoneItemMaster master;
+    public List<StoneItemParamater> StoneList { get { return stoneList; } }
 
     public static StoneManager Instance
     {
         get
         {
-            if (instance == null)
-            {
-                var manager = new StoneManager();
-            }
             return instance;
         }
     }
 
-
-    public StoneManager()
+    public StoneManager(StoneItemMaster setMaster)
     {
+        master = setMaster;
         instance = this;
-        stoneList = new List<StoneItemParamater>();
         CanvasManager manager = new CanvasManager();
+        ConfirmationStoneManager confirmation = new ConfirmationStoneManager();
+        ScrollViewManager.Instance.Find();
         Request();
     }
 
@@ -41,21 +44,18 @@ public class StoneManager : MonoBehaviour
 
     public void Instantiate()
     {
-        var obj = Resources.Load<GameObject>("UI/Mark");
-        Debug.Log(obj);
-        /*
+        var obj = Resources.Load<GameObject>(FILE_NAME);
         foreach (StoneItemParamater stone in stoneList)
         {
-            if (stone.Type == "master")
+            if (stone.Type == MASTER_TYPE)
             {
-
+                stone.MasterStone();
             }
             else
             {
-                var instanceObj = Instantiate(obj, transform.position, Quaternion.identity);
+                var instanceObj = master.InstanceObj(obj);
                 stone.Instance(instanceObj);
             }
         }
-        */
     }
 }
