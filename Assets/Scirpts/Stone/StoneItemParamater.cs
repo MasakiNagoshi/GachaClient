@@ -20,8 +20,9 @@ public class StoneItemParamater
     const string IMAGE_FOLDER = "Image/Type/";
     const string MASTER_IMAGE_OBJ = "MasterImage";
     const string MASTER_COUNT_TEXT_OBJ = "MasterCount";
+    const int FONT_SIZE = 24;
     public GameObject InstanceObj { get { return instanceObj; } }
-    public int Count { get { return count; } }
+    public int Count { get { return count; } set { count = value; countText.text = count.ToString(); } }
     public string Type { get { return type; } }
 
     public StoneItemParamater(int setCount, string setType)
@@ -74,7 +75,7 @@ public class StoneItemParamater
         var button = target.GetComponent<Button>();
         button.onClick.AddListener(() =>
             {
-                ConfirmationStoneManager.Instance.SetActive(true,typeText.text,count,image.sprite);
+                ConfirmationStoneManager.Instance.SetActive(true, typeText.text, count, image.sprite, type);
             });
     }
 
@@ -87,6 +88,7 @@ public class StoneItemParamater
     void CountTextSetting(GameObject target)
     {
         countText = target.gameObject.GetComponent<Text>();
+        countText.fontSize = FONT_SIZE;
         countText.text = count.ToString();
     }
 
@@ -98,8 +100,8 @@ public class StoneItemParamater
     void MasterSetting()
     {
         var masterImage = GameObject.Find(MASTER_IMAGE_OBJ).GetComponent<Image>();
-        var masterCountText = GameObject.Find(MASTER_COUNT_TEXT_OBJ).GetComponent<Text>();
+        countText = GameObject.Find(MASTER_COUNT_TEXT_OBJ).GetComponent<Text>();
         masterImage.sprite = Resources.Load<Sprite>(IMAGE_FOLDER + type);
-        masterCountText.text = count.ToString();
+        countText.text = count.ToString();
     }
 }

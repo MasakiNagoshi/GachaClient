@@ -91,4 +91,17 @@ namespace Protocol
     {
         public List<EmmisionCharacter> emmisionCharacterList;
     }
+
+    public class RequestBuyStoneItem
+    {
+        public string user_id;
+        public string type;
+        public string count;
+    }
+
+    public class ResponseBuyStoneItem
+    {
+        public bool isSucsess;
+    }
+
 }

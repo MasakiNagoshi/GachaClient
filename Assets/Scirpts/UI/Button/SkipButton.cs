@@ -9,10 +9,11 @@ using UnityEngine.UI;
 public class SkipButton
 {
     static SkipButton instance;
-    public static SkipButton Instance { get { return instance; } }
+
     Button buttonobj;
     const string SKIP_OBJ = "SkipButton";
 
+    public static SkipButton Instance { get { return instance; } }
     public SkipButton()
     {
         instance = this;

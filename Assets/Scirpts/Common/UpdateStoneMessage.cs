@@ -23,7 +23,7 @@ public class UpdateStoneMessage
                 return "ひこうのカケラ";
             case "normal":
                 return "ノーマルのカケラ";
-            case "electical":
+            case "electrical":
                 return "でんきのカケラ";
             case "ground":
                 return "じめんのカケラ";
@@ -39,6 +39,8 @@ public class UpdateStoneMessage
                 return "エスパーのカケラ";
             case "poison":
                 return "どくのカケラ";
+            case "fight":
+                return "かくとうのカケラ";
         }
         return "";
     }

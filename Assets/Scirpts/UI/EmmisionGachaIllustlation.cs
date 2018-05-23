@@ -1,4 +1,8 @@
-﻿
+﻿//////////////////////////////////////////////////////////////
+//制作者　名越大樹
+//排出されたキャラクターの画像を読み込みを行うクラス
+//////////////////////////////////////////////////////////////
+
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -13,6 +17,10 @@ public class EmmisionGachaIllustlation
     const string SSR_RATE = "ssr";
     const string CHARACTER_ILLUST_FOLDER = "Image/CharacterIllust/";
     const string MONSTERBALL_ILLUST_FOLDER = "Image/MonsterBall/";
+    const string N_IMAGE = "NRateImage";
+    const string R_IMAGE = "RRateImage";
+    const string SR_IMAGE = "SRRateImage";
+    const string SSR_IMAGE = "SSRRateImage";
 
     public static EmmisionGachaIllustlation Instance { get { return instance; } }
 
@@ -26,16 +34,16 @@ public class EmmisionGachaIllustlation
         switch (rate)
         {
             case N_RATE:
-                rate = "NRateImage";
+                rate = N_IMAGE;
                 break;
             case R_RATE:
-                rate = "RRateImage";
+                rate = R_IMAGE;
                 break;
             case SR_RATE:
-                rate = "SRRateImage";
+                rate = SR_IMAGE;
                 break;
             case SSR_RATE:
-                rate = "SSRRateImage";
+                rate = SSR_IMAGE;
                 break;
         }
         if (int.Parse(number) >= 10 && int.Parse(number) < 100)

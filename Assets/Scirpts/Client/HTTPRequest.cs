@@ -46,14 +46,13 @@ namespace Request
         {
             string[] splitdata = response.Split(NetWorkKey.RESPONSE_FIRST_SPLIT);
             string check = splitdata[0];
-            if(check.Length > 1)
+            if (check.Length > 1)
             {
-                if(check[0] != ' ')
+                if (check[0] != ' ')
                 {
-                   check = check.Remove(0,1);
+                    check = check.Remove(0, 1);
                 }
             }
-            Debug.Log(check.Length);
             switch (check)
             {
                 case NetWorkKey.RESPONSE_CREATE_USER:
@@ -74,9 +73,25 @@ namespace Request
                 case "8":
                     ResponseGetAllStones(splitdata);
                     break;
+                case "a":
+                    ResponseBuyStoneItem(splitdata);
+                    break;
             }
         }
 
+        void ResponseBuyStoneItem(string[] data)
+        {
+            ResponseBuyStoneItem response = new Protocol.ResponseBuyStoneItem();
+            if (data[1] == "1")
+            {
+                response.isSucsess = true;
+            }
+            else
+            {
+                response.isSucsess = false;
+            }
+            ApiClient.Instance.ResponseBuyStoneItem(response);
+        }
 
         void ResponseGetAllStones(string[] data)
         {

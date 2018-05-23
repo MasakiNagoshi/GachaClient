@@ -86,7 +86,6 @@
     <Compile Include="Assets\Scirpts\Client\Test.cs" />
     <Compile Include="Assets\Scirpts\Common\UpdateStoneMessage.cs" />
     <Compile Include="Assets\Scirpts\Control\Click.cs" />
-    <Compile Include="Assets\Scirpts\Control\GachaClick.cs" />
     <Compile Include="Assets\Scirpts\Effect\EmmisionGachaEffect.cs" />
     <Compile Include="Assets\Scirpts\EmmisionCharacter\CrySe.cs" />
     <Compile Include="Assets\Scirpts\Error\ErrorCheck.cs" />
@@ -103,7 +102,6 @@
     <Compile Include="Assets\Scirpts\GetEffect\GetLeafEffect.cs" />
     <Compile Include="Assets\Scirpts\GetEffect\GetThunderEffect.cs" />
     <Compile Include="Assets\Scirpts\GetEffect\GetWaterEffect.cs" />
-    <Compile Include="Assets\Scirpts\Ini\GachaSceneIni.cs" />
     <Compile Include="Assets\Scirpts\KeyWord\DicitonaryName.cs" />
     <Compile Include="Assets\Scirpts\KeyWord\Message.cs" />
     <Compile Include="Assets\Scirpts\KeyWord\NetWorkKey.cs" />
@@ -128,13 +126,11 @@
     <Compile Include="Assets\Scirpts\Master\EmmisionGachaMaster.cs" />
     <Compile Include="Assets\Scirpts\Master\GachaMaster.cs" />
     <Compile Include="Assets\Scirpts\Master\LoginPresentMaster.cs" />
-    <Compile Include="Assets\Scirpts\Master\StoneItemMaster.cs" />
+    <Compile Include="Assets\Scirpts\Master\StoneMaster.cs" />
     <Compile Include="Assets\Scirpts\Master\TitleMaster.cs" />
     <Compile Include="Assets\Scirpts\Reset\Reset.cs" />
     <Compile Include="Assets\Scirpts\Reset\ResetObj.cs" />
-    <Compile Include="Assets\Scirpts\Stone\StoneImageCorrection.cs" />
     <Compile Include="Assets\Scirpts\Stone\StoneItemParamater.cs" />
-    <Compile Include="Assets\Scirpts\Stone\StoneType.cs" />
     <Compile Include="Assets\Scirpts\Stone\Type.cs" />
     <Compile Include="Assets\Scirpts\UI\AttachRate.cs" />
     <Compile Include="Assets\Scirpts\UI\Button\SkipButton.cs" />
@@ -154,11 +150,9 @@
     <Compile Include="Assets\Scirpts\UI\NormalGacha.cs" />
     <Compile Include="Assets\Scirpts\UI\NormalTicket.cs" />
     <Compile Include="Assets\Scirpts\UI\OKButton.cs" />
-    <Compile Include="Assets\Scirpts\UI\ShoppingButton.cs" />
     <Compile Include="Assets\Scirpts\UI\SpecalGacha.cs" />
     <Compile Include="Assets\Scirpts\UI\SpecalTicket.cs" />
     <Compile Include="Assets\Scirpts\UI\TicketBase.cs" />
-    <Compile Include="Assets\Testtt.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

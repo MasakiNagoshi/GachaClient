@@ -114,13 +114,11 @@ namespace HTTP
         {
             if (response.islogin)
             {
-                Debug.Log("ログインしていました");
                 SceneManagers.SceneLoad(SceneManagers.SceneName.Main);
             }
 
             else
             {
-                Debug.Log("ログインまだでした");
                 PlayerPrefs.SetString(NetWorkKey.LOGIN_PRESENT, response.login_present);
                 SceneManagers.SceneLoad(SceneManagers.SceneName.LoginPresent);
             }
@@ -147,7 +145,6 @@ namespace HTTP
             PlayerPrefs.SetString(NetWorkKey.USER_ID, response.user_id);
             PlayerPrefs.SetString(NetWorkKey.USER_NAME, response.user_name);
             SceneManagers.SceneLoad(SceneManagers.SceneName.Title);
-            Debug.Log("ユーザー登録完了");
         }
 
         /// <summary>
@@ -209,12 +206,43 @@ namespace HTTP
         /// <param name="response"></param>
         void ResposeGetAllStones(ResponseGetAllStones response)
         {
+            if (!StoneManager.Instance.IsIni)
+            {
+                StoneManager.Instance.UpdateStoneList(response.stones_list);
+                return;
+            }
             foreach (Stone stone in response.stones_list)
             {
                 StoneItemParamater param = new StoneItemParamater(stone.count, stone.type);
                 StoneManager.Instance.StoneList.Add(param);
             }
             StoneManager.Instance.Instantiate();
+        }
+
+        /// <summary>
+        /// 石を購入する時のリクエストに関する処理
+        /// </summary>
+        /// <param name="param"></param>
+        public void RequestBuyStoneItem(RequestBuyStoneItem param)
+        {
+            Debug.Log("sahosahosah");
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            data.Add(NetWorkKey.USER_ID, param.user_id);
+            data.Add(NetWorkKey.STATUS, "2");
+            data.Add(NetWorkKey.TYPE, param.type);
+            data.Add(NetWorkKey.TYPE_COUNT, param.count);
+            StartCoroutine(requester.RequestPost(ip, data));
+        }
+
+        /// <summary>
+        /// 石を購入する時のレスポンスに関する処理
+        /// </summary>
+        /// <param name="response"></param>
+        public void ResponseBuyStoneItem(ResponseBuyStoneItem response)
+        {
+            RequestGetAllStones param = new RequestGetAllStones();
+            param.user_id = PlayerPrefs.GetString(NetWorkKey.USER_ID);
+            RequestGetAllStones(param);
         }
     }
 }

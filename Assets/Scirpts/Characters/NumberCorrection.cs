@@ -39,6 +39,4 @@ public class NumberCorrection
             return number.ToString();
         }
     }
-
-
 }

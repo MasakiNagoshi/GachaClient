@@ -13,7 +13,7 @@ public class NetWorkKey
     public const string GACHA_RATE = "rate";
     public const string CREATE_USER = "0";
     public const string GET_ALL_NUMBER = "1";
-    public const string GACHA = "2";
+    public const string GACHA = "9";
     public const string GET_REQUEST = "getrequest";
     public const string LOGIN = "login";
     public const string TICKET = "ticket";
@@ -36,4 +36,6 @@ public class NetWorkKey
     public const char RESPONSE_FIRST_SPLIT = ',';
     public const string NORMAL_TICKET_ID = "1";
     public const string SPECAL_TICKET_ID = "2";
+    public const string TYPE = "type";
+    public const string TYPE_COUNT = "count";
 }

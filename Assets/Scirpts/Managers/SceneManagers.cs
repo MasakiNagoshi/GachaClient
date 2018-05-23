@@ -12,6 +12,7 @@ public class SceneManagers
     const string LOGIN_PRESENT_SCENE = "LoginPresent";
     const string EMMISION_GACHA_SCENE = "EmmisionGacha";
     const string DICTIONARY_SCENE = "Dictionary";
+    const string STONE_SHOPPING_SCENE = "Stone";
     public enum SceneName
     {
         Title,
@@ -20,10 +21,10 @@ public class SceneManagers
         CreateUser,
         LoginPresent,
         EmmisionGacha,
+        Shopping,
     }
 
     public static SceneName Scene { get { return scene; } }
-
 
 
     public static void SceneLoad(SceneName name)
@@ -48,6 +49,9 @@ public class SceneManagers
                 break;
             case SceneName.Dictionary:
                 UnityEngine.SceneManagement.SceneManager.LoadScene(DICTIONARY_SCENE);
+                break;
+            case SceneName.Shopping:
+                UnityEngine.SceneManagement.SceneManager.LoadScene(STONE_SHOPPING_SCENE);
                 break;
         }
     }

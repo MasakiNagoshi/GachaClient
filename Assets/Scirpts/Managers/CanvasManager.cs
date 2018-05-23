@@ -29,6 +29,6 @@ public class CanvasManager
 
     static void Find()
     {
-        canvas = GameObject.Find("Canvas");
+        canvas = GameObject.Find(CANVAS_NAME);
     }
 }

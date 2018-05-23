@@ -8,7 +8,7 @@ public class EmmisionUpdateManager
     static EmmisionUpdateManager instance;
 
     public static EmmisionUpdateManager Instance { get { return instance; } }
-   
+
     public EmmisionUpdateManager()
     {
         instance = this;

@@ -24,14 +24,9 @@ public class ConfirmationStoneManager
         confirmation.gameObject.SetActive(set);
     }
 
-    public void SetActive(bool set,string attachName,int number,Sprite sprite)
+    public void SetActive(bool set,string attachName,int number,Sprite sprite,string type)
     {
         confirmation.gameObject.SetActive(set);
-        ConfirmationStoneParamater param = new ConfirmationStoneParamater(attachName, number, sprite);
-    }
-
-    void UpdateConfirmation()
-    {
-
+        ConfirmationStoneParamater param = new ConfirmationStoneParamater(attachName, sprite,type);
     }
 }

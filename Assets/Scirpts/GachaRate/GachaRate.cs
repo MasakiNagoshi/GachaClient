@@ -83,16 +83,15 @@ public class GachaRate : MonoBehaviour
             }
             else
             {
-                ChangeMasterStoneImage(rate,rateobj);
+                ChangeMasterStoneImage(rate, rateobj);
             }
             rateobj.enabled = false;
         }
     }
 
-    void ChangeMasterStoneImage(string rate,Button rateobj)
+    void ChangeMasterStoneImage(string rate, Button rateobj)
     {
-
-        ChangeDuplicationEmmisionCharacter duplication = new ChangeDuplicationEmmisionCharacter(3.0f,rateobj.GetComponent<Image>(),rate);
+        ChangeDuplicationEmmisionCharacter duplication = new ChangeDuplicationEmmisionCharacter(3.0f, rateobj.GetComponent<Image>(), rate);
         switch (rate)
         {
             case R_RATE:

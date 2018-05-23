@@ -1,8 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/////////////////////////////////////////////////////
+//制作者　名越大樹
+//
+/////////////////////////////////////////////////////
+
 using UnityEngine;
 
-public class StoneItemMaster : MonoBehaviour
+public class StoneMaster : MonoBehaviour
 {
     void Start()
     {

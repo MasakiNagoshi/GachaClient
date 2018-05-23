@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿///////////////////////////////////////////////
+//制作者　名越大樹
+//ChangeAnimationを管理するクラス
+///////////////////////////////////////////////
+
 using System.Collections.Generic;
-using UnityEngine;
 
 public class ChangeAnimationManager
 {

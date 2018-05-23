@@ -28,6 +28,7 @@ public class Click : MonoBehaviour
     {
         instance = this;
         var obj = new GameObject(CLICK_SE_OBJ);
+        DontDestroyOnLoad(obj);
         obj.AddComponent<AudioSource>();
         DontDestroyOnLoad(obj);
         audio = obj.GetComponent<AudioSource>();
@@ -37,6 +38,16 @@ public class Click : MonoBehaviour
     public void PlaySe()
     {
         audio.Play();
+    }
+
+    public Click(AudioClip clip)
+    {
+        instance = this;
+        var obj = new GameObject(CLICK_SE_OBJ);
+        obj.AddComponent<AudioSource>();
+        DontDestroyOnLoad(obj);
+        audio = obj.GetComponent<AudioSource>();
+        audio.clip = clip;
     }
 
     public void ChangeSe(AudioClip clip)
